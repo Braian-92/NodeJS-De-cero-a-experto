@@ -4,7 +4,8 @@ console.log(
   'INICIO -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
 )
 // require('./js-fundation/02-destructuring')
-const { getUserByID } = require('./js-fundation/03-callbacks')
+// const { getUserByID } = require('./js-fundation/03-callbacks')
+const { getUserByID } = require('./js-fundation/04-arrow')
 
 const id = 2
 getUserByID(id, function(error, user) {
