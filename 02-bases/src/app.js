@@ -1,2 +1,4 @@
 
-console.log('Hola mundo desde app.js')
+
+
+require('./js-fundation/01-templete')
