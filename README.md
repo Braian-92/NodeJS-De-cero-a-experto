@@ -38,3 +38,6 @@ https://www.npmjs.com/package/nodemon
 -- version que no es total para toda la pc 2da
 npm install -D nodemon 
 -D = dependencias de desarrollo
+
+-- instalar terminal hyper
+https://github.com/vercel/hyper/releases/download/v3.4.1/Hyper-Setup-3.4.1.exe
