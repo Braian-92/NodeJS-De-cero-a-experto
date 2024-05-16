@@ -32,3 +32,9 @@ node app.js / node app
 
 ----------- 02 BASES -----------
 npm init
+
+-- instalar nodemon 
+https://www.npmjs.com/package/nodemon
+-- version que no es total para toda la pc 2da
+npm install -D nodemon 
+-D = dependencias de desarrollo
