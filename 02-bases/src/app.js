@@ -1,4 +1,7 @@
 const { emailTemplete } = require('./js-fundation/01-templete')
+//! usado en 05-factory2
+const { getUUID, getAge } = require('./plugins/')
+
 // console.log('🚀 ~ emailTemplete:', emailTemplete)
 console.log(
   'INICIO -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
@@ -15,10 +18,21 @@ console.log(
 const { getUserByID } = require('./js-fundation/04-arrow')
 const id = 2
 getUserByID(id, (error, user) => {
-  if (error){
+  if (error) {
     throw new Error(error, id)
   }
-  console.log("🚀 ~ getUserByID ~ user:", user)
+  // console.log('🚀 ~ getUserByID ~ user:', user)
 })
 
-require('./js-fundation/05-factory')
+// require('./js-fundation/05-factory')
+const { buildMakePerson } = require('./js-fundation/05-factory2')
+
+const makePerson = buildMakePerson({getUUID, getAge})
+
+const obj = {
+  name: 'Braian',
+  birthdate: '1992-11-04'
+}
+
+const braian = makePerson(obj)
+console.log("🚀 ~ obj:", obj)
