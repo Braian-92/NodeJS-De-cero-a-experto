@@ -1,11 +1,11 @@
-
+const { getUUID, getAge } = require('../plugins/')
 
 const buildPerson = ({ name, birthdate }) => {
   return {
-    id: new Date().getTime(),
+    id: getUUID(),
     name: name,
     birthdate: birthdate,
-    age: new Date().getFullYear() - new Date(birthdate).getFullYear()
+    age: getAge(birthdate)
   }
 }
 
@@ -15,4 +15,4 @@ const obj = {
 }
 
 const braian = buildPerson(obj)
-console.log("🚀 ~ braian:", braian)
+console.log('🚀 ~ braian:', braian)
