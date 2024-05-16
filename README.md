@@ -29,3 +29,6 @@ salir terminal = ctrl + c
 -- ejecutar archivos js desde consola den visual studio code
 node app.js / node app
 -> sale el log
+
+----------- 02 BASES -----------
+npm init
