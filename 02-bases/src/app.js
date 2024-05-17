@@ -27,7 +27,7 @@ getUserByID(id, (error, user) => {
 // require('./js-fundation/05-factory')
 const { buildMakePerson } = require('./js-fundation/05-factory2')
 
-const makePerson = buildMakePerson({getUUID, getAge})
+const makePerson = buildMakePerson({ getUUID, getAge })
 
 const obj = {
   name: 'Braian',
@@ -35,4 +35,18 @@ const obj = {
 }
 
 const braian = makePerson(obj)
-console.log("🚀 ~ obj:", obj)
+// console.log("🚀 ~ obj:", obj)
+
+//! 06-promises
+
+const getPokemonByID = require('./js-fundation/06-promises')
+getPokemonByID(4, (pokemon) => {
+  // console.log({ pokemon })
+})
+
+const getPokemonByID2 = require('./js-fundation/06-promises2')
+
+getPokemonByID2(4)
+  .then((pokemon) => console.log({pokemon}))
+  .catch( (err) => console.log('Por favor intente de nuevo') )
+  .finally( () => console.log('Finalmente') )
