@@ -39,14 +39,21 @@ const braian = makePerson(obj)
 
 //! 06-promises
 
-const getPokemonByID = require('./js-fundation/06-promises')
-getPokemonByID(4, (pokemon) => {
-  // console.log({ pokemon })
-})
+// const getPokemonByID = require('./js-fundation/06-promises')
+// getPokemonByID(4, (pokemon) => {
+//   // console.log({ pokemon })
+// })
 
-const getPokemonByID2 = require('./js-fundation/06-promises2')
+// const getPokemonByID2 = require('./js-fundation/06-promises2')
 
-getPokemonByID2(4)
+// getPokemonByID2(4)
+//   .then((pokemon) => console.log({pokemon}))
+//   .catch( (err) => console.log('Por favor intente de nuevo') )
+//   .finally( () => console.log('Finalmente') )
+
+const getPokemonByID3 = require('./js-fundation/06-promises3_async')
+
+getPokemonByID3(4)
   .then((pokemon) => console.log({pokemon}))
   .catch( (err) => console.log('Por favor intente de nuevo') )
   .finally( () => console.log('Finalmente') )

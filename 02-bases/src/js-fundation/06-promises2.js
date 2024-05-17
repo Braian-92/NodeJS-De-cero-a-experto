@@ -1,4 +1,4 @@
-const getPokemonByID2 = (id, callback) => {
+const getPokemonByID2 = (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`
 
   return fetch(url)
