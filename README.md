@@ -47,6 +47,10 @@ npm i uuid
 https://www.npmjs.com/package/get-age
 npm i get-age
 
--- AXIOS
+-- AXIOS request http
 https://www.npmjs.com/package/axios
 npm i axios
+
+-- winston api logs en el ftp
+https://www.npmjs.com/package/winston
+npm i winston

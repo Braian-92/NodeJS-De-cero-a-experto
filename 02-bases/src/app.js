@@ -57,3 +57,11 @@ getPokemonByID3(4)
   .then((pokemon) => console.log({pokemon}))
   .catch( (err) => console.log('Por favor intente de nuevo') )
   .finally( () => console.log('Finalmente') )
+
+//! #################################
+
+const { buildLogger } = require('./plugins')
+const logger = buildLogger('app.js')
+
+logger.log('hola mundo')
+logger.error('esto es un error.')
