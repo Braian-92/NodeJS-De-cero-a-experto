@@ -41,3 +41,12 @@ npm install -D nodemon
 
 -- instalar terminal hyper
 https://github.com/vercel/hyper/releases/download/v3.4.1/Hyper-Setup-3.4.1.exe
+
+https://www.npmjs.com/package/uuid
+npm i uuid
+https://www.npmjs.com/package/get-age
+npm i get-age
+
+-- AXIOS
+https://www.npmjs.com/package/axios
+npm i axios
