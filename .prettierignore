@@ -1,0 +1,23 @@
+pnpm-lock.yaml
+# Ignora el archivo de bloqueo de pnpm ya que generalmente no necesita formateo y es generado automáticamente.
+
+# prettier doesn't respect newlines between chained methods
+# https://github.com/prettier/prettier/issues/7884
+# Prettier no respeta los saltos de línea entre métodos encadenados.
+# Ver el problema documentado en https://github.com/prettier/prettier/issues/7884.
+**/*.spec.js
+# Ignora todos los archivos de pruebas con extensión .spec.js debido al problema con métodos encadenados.
+**/*.spec.ts
+# Ignora todos los archivos de pruebas con extensión .spec.ts debido al problema con métodos encadenados.
+
+**/dist
+# Ignora el directorio de distribución (dist) porque contiene archivos generados que no necesitan formateo.
+
+# https://github.com/prettier/prettier/issues/5246
+# Ver el problema documentado en https://github.com/prettier/prettier/issues/5246.
+**/*.html
+# Ignora todos los archivos HTML debido a un problema conocido con el formateo de HTML en Prettier.
+
+playground
+# Ignora el directorio playground, que probablemente se utiliza para código de pruebas o desarrollo
+# de características y no necesita ser formateado estrictamente.
