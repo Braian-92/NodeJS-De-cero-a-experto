@@ -79,3 +79,8 @@ npx tsc --init --outDir dist/ --rootDir src
   "dev": "nodemon",
   "build": "rimraf ./dist && tsc",
   "start": "npm run build && node dist/app.js"
+
+-- seguimiento de archivo compilado
+npx nodemon dist/app
+
+ctrl + . = para importar dependencias utilizadas pero no integradas
