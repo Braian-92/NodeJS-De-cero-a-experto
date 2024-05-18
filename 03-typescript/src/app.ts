@@ -20,5 +20,5 @@ const finHeroByID = (id: number) => {
   return heroes.find((hero) => hero.id === id)
 }
 
-const hero = finHeroByID(1)
+const hero = finHeroByID(2)
 console.log(hero?.name ?? 'Hero not found')
