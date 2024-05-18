@@ -1,5 +1,3 @@
-console.log(process.env)
-
 const { PROCESSOR_ARCHITECTURE, USERPROFILE, USERNAME } = process.env
 
 console.log('🚀 ~ PROCESSOR_ARCHITECTURE:', PROCESSOR_ARCHITECTURE)
