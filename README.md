@@ -145,3 +145,13 @@ npx tsc --init --outDir dist/ --rootDir src       (lo ejecute 2 veces para que m
 ---------
 cd {proyecto directorio}
 npm run dev -- ejecuta "dev": "nodemon",
+
+-- envio de variables 
+node dist/app.js -cantidad=100
+recibidas en 
+process.argv
+## SALIDA ##
+'C:\\Program Files\\nodejs\\node.exe',
+'C:\\xampp\\htdocs\\GITHUB\\NodeJS-De-cero-a-experto\\04-multiplication\\dist\\app.js',
+'-cantidad=100'
+## FIN SALIDA ##
