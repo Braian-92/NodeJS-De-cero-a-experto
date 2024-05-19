@@ -1,6 +1,6 @@
 import { httpClientPlugin } from '../../src/plugins/http-client.plugin'
 
-describe('plugins/get-id.plugin.ts', () => {
+describe('plugins/http-client.plugin', () => {
   test('httpClientPlugin() should return a string', async () => {
     const data = await httpClientPlugin.get(
       'https://jsonplaceholder.typicode.com/todos/1'
@@ -12,7 +12,7 @@ describe('plugins/get-id.plugin.ts', () => {
       title: 'delectus aut autem',
       completed: expect.any(Boolean)
     })
-  })
+  }, 10000); // Aumenta el timeout a 10 segundos
 
   test('httpClientPlugin should have POST, PUT and DELETE methods', () => {
     expect(typeof httpClientPlugin.post).toBe('function')
