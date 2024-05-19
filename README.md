@@ -84,3 +84,28 @@ npx tsc --init --outDir dist/ --rootDir src
 npx nodemon dist/app
 
 ctrl + . = para importar dependencias utilizadas pero no integradas
+
+-- TESTING --
+-- instalar jest
+https://gist.github.com/Klerith/98d7b1bc0f1525e892f260813cad1007
+https://jestjs.io/docs/getting-started
+-- Instalaciones de desarrollo (super test es útil para probar Express)
+npm install -D jest @types/jest ts-jest supertest
+## ERROR ##
+por algun motivo reinstale esto para que funciona 
+npm install ts-node typescript --save-dev
+## FIN ERROR ##
+-- Crear archivo de configuración de Jest
+npx jest --init
+-- En el archivo jest.config.js configurar
+### inicio archivo
+preset: 'ts-jest',
+testEnvironment: "jest-environment-node",
+
+// Opcional - The paths to modules that run some code to configure or set up the testing environment before each test
+// setupFiles: ['dotenv/config'],
+### FIN inicio archivo
+-- Crear scripts en el package.json
+"test": "jest",
+"test:watch": "jest --watch",
+"test:coverage": "jest --coverage",

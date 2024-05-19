@@ -7,4 +7,4 @@ const logger = buildLogger('app.js')
 logger.log('hola mundo')
 logger.error('esto es un error.')
 
-getPokemonByID3(1)
+getPokemonByID3(1).then
