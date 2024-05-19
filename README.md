@@ -109,3 +109,12 @@ testEnvironment: "jest-environment-node",
 "test": "jest",
 "test:watch": "jest --watch",
 "test:coverage": "jest --coverage",
+
+-- verificar test completo
+npm run test:coverage
+
+-- incluciones y excluciones en build del tsconfig.json
+## cod fragmento##
+"include":["src/**/*"],
+  "exclude":["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+## FIN cod fragmento##
