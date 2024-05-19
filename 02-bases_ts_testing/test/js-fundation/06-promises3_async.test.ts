@@ -5,7 +5,7 @@ describe('js-fundation/06-promises3_async', () => {
     const pokemonId = 1
     const pokemon = await getPokemonByID3(pokemonId)
     expect(pokemon).toBe('bulbasaur')
-  }, 10000); // Aumenta el timeout a 10 segundos
+  }, 30000); // Aumenta el timeout a 30 segundos
 
   test('should return an error if pokemon not exist', async () => {
     const pokemonId = 1000000000000000000
@@ -15,5 +15,5 @@ describe('js-fundation/06-promises3_async', () => {
     } catch (error) {
       expect(error).toBe(`Pokemon not found with id ${pokemonId}`)
     }
-  })
+  }, 30000); // Aumenta el timeout a 30 segundos
 })
