@@ -6,9 +6,8 @@ import { yarg } from "./config/plugins/args.plugin"
 
 (async( ) => {
   await main()
-  console.log('Fin de programa')
 })()
 
 async function main(){
-  console.log('Main ejecutando')
+  console.log(yarg)
 }
