@@ -155,3 +155,7 @@ process.argv
 'C:\\xampp\\htdocs\\GITHUB\\NodeJS-De-cero-a-experto\\04-multiplication\\dist\\app.js',
 '-cantidad=100'
 ## FIN SALIDA ##
+
+-- instalación yargs
+https://www.npmjs.com/package/yargs
+npm i --save-dev @types/yargs
