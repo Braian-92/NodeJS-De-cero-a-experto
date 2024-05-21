@@ -1,8 +1,8 @@
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
-export const yarg = yargs( hideBin(process.argv) )
-  .option('b',{
+export const yarg = yargs(hideBin(process.argv))
+  .option('b', {
     alias: 'base',
     type: 'number',
     demandOption: true,
@@ -20,6 +20,10 @@ export const yarg = yargs( hideBin(process.argv) )
     default: false,
     describe: 'Show multiplication table'
   })
+  .check((argv, options) => {
+    
+    if(argv.b < 1) throw 'Error: base must be grater than 0'
+
+    return true
+  })
   .parseSync()
-
-
