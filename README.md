@@ -159,3 +159,16 @@ process.argv
 -- instalación yargs
 https://www.npmjs.com/package/yargs
 npm i --save-dev @types/yargs
+
+-- busca la ayuda generada por el option de yarg
+npx ts-node src/app --help
+npx ts-node src/app --base 100
+
+-- pasando argumentos
+npx ts-node src/app --base 1 -s
+npx ts-node src/app.logic --base 1 -s
+
+npm run dev:nodemon-b7
+
+-- ejecutar refactorizado de createTable
+npx ts-node src/app.ts --base 7 -s
