@@ -172,3 +172,28 @@ npm run dev:nodemon-b7
 
 -- ejecutar refactorizado de createTable
 npx ts-node src/app.ts --base 7 -s
+npx ts-node src/app.ts --base 7 -s -n table111
+npx ts-node src/app.ts --base 7 -s -n table111 -d files
+
+
+## seccion 4 testing
+configurar jest en ts
+https://gist.github.com/Klerith/98d7b1bc0f1525e892f260813cad1007
+
+*Instalaciones de desarrollo (super test es útil para probar Express)
+npm install -D jest @types/jest ts-jest supertest
+
+*Crear archivo de configuración de Jest
+npx jest --init
+
+*En el archivo jest.config.js configurar
+preset: 'ts-jest',
+testEnvironment: "jest-environment-node",
+
+// Opcional - The paths to modules that run some code to configure or set up the testing environment before each test
+// setupFiles: ['dotenv/config'],
+
+*Crear scripts en el package.json
+"test": "jest",
+"test:watch": "jest --watch",
+"test:coverage": "jest --coverage",

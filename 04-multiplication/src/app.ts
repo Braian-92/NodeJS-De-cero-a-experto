@@ -1,12 +1,18 @@
-import { yarg } from "./config/plugins/args.plugin"
-import { ServerApp } from "./presentation/server-app"
+import { yarg } from './config/plugins/args.plugin'
+import { ServerApp } from './presentation/server-app'
 
-(async( ) => {
+;(async () => {
   await main()
 })()
 
-async function main(){
+async function main() {
   console.log('❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️')
-  const {b:base, l:limit, s:showTable} = yarg
-  ServerApp.run({base, limit, showTable})
+  const {
+    b: base,
+    l: limit,
+    s: showTable,
+    n: fileName,
+    d: fileDestination
+  } = yarg
+  ServerApp.run({ base, limit, showTable, fileName, fileDestination })
 }
