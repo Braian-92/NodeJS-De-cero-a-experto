@@ -19,7 +19,8 @@ describe('SaveCaseFile', () => {
     if (outputFolderExist) fs.rmSync('outputs', { recursive: true })
 
     const customOutputFolderExist = fs.existsSync(customOptions.fileDestination)
-    if (customOutputFolderExist) fs.rmSync(customOptions.fileDestination, { recursive: true })
+    if (customOutputFolderExist)
+      fs.rmSync(customOptions.fileDestination, { recursive: true })
   })
 
   test('should save file with default values', () => {
@@ -52,5 +53,13 @@ describe('SaveCaseFile', () => {
       encoding: 'utf-8'
     })
     expect(fileContent).toBe(customOptions.fileContent)
+  })
+
+  test('should return false if directory could not be created', () => {
+    const saveFile = new SaveFile()
+    const mkdirSpy = jest.spyOn(fs, 'mkdirSync').mockImplementation(() => {
+      throw new Error('Error')
+    })
+    
   })
 })
