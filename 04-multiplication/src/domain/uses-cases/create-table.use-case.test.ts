@@ -9,7 +9,7 @@ describe('CreateTableUseCase', () => {
     })
     const rows = table.split('\n')
     console.log('🚀 ~ test ~ table:', table)
-    console.log('🚀 ~ test ~ rows:', rows)
+    console.log('🚀 ~ test ~ rows:', rows) 
 
     expect(createTable).toBeInstanceOf(CreateTable)
 
