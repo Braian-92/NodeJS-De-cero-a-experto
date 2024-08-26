@@ -197,3 +197,7 @@ testEnvironment: "jest-environment-node",
 "test": "jest",
 "test:watch": "jest --watch",
 "test:coverage": "jest --coverage",
+
+
+-- Ejecutar test
+npm run test:watch
