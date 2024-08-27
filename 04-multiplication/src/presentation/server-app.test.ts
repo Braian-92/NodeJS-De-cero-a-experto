@@ -1,8 +1,23 @@
+import {describe, expect, beforeEach, test, jest} from '@jest/globals'
+
 import { CreateTable } from '../domain/uses-cases/create-table.use-case';
 import { SaveFile } from '../domain/uses-cases/save-file.use-case';
 import { ServerApp } from './server-app';
 
 describe('Server App', () =>{
+
+  const options = {
+    base: 2,
+    limit: 10,
+    showTable: false,
+    fileDestination: 'test-destination',
+    fileName: 'test-filename',
+  };
+
+  beforeEach( () => {
+
+  })
+  
   test('should create ServerApp instance', () => {
     const serverApp = new ServerApp();
 
@@ -17,13 +32,7 @@ describe('Server App', () =>{
     const createTableSpy = jest.spyOn(CreateTable.prototype, 'execute');
     const saveFileSpy = jest.spyOn(SaveFile.prototype, 'execute');
 
-    const options = {
-      base: 2,
-      limit: 10,
-      showTable: false,
-      fileDestination: 'test-destination',
-      fileName: 'test-filename',
-    };
+    
 
     ServerApp.run(options)
 
