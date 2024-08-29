@@ -23,3 +23,8 @@ En el archivo tsconfig.json
 "include": [
   "src"
 ]
+
+
+https://www.npmjs.com/package/cron
+
+npm i cron
