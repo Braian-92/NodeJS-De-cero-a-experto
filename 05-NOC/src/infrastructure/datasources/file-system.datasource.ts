@@ -7,7 +7,7 @@ import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 export class FileSystemDatasource implements LogDatasource {
 
   private readonly logPath = 'logs/';
-  private readonly allLogPath = 'logs/logs-low.log';
+  private readonly allLogsPath = 'logs/logs-low.log';
   private readonly mediumLogPath = 'logs/logs-medium.log';
   private readonly highLogPath = 'logs/logs-high.log';
 
@@ -22,7 +22,7 @@ export class FileSystemDatasource implements LogDatasource {
     }
 
     [
-      this.allLogPath,
+      this.allLogsPath,
       this.mediumLogPath,
       this.highLogPath
     ].forEach( path => {
@@ -33,11 +33,48 @@ export class FileSystemDatasource implements LogDatasource {
 
   }
 
-  saveLog(log: LogEntity): Promise<void> {
-    throw new Error("Method not implemented.");
+  async saveLog(newLog: LogEntity): Promise<void> {
+    
+    const logAsJson = `${JSON.stringify(newLog)}\n`;
+    
+    fs.appendFileSync( this.allLogsPath , logAsJson)
+
+    if( newLog.level === LogSeverityLevel.low ) return;
+
+    if( newLog.level === LogSeverityLevel.medium ) {
+      fs.appendFileSync( this.mediumLogPath , logAsJson)
+    }else{
+      fs.appendFileSync( this.highLogPath , logAsJson)
+    }
+
+
+
   }
-  getLog(severityLevel: LogSeverityLevel): Promise<void> {
-    throw new Error("Method not implemented.");
+
+  private getLogsFromFile = ( path:string ): LogEntity[] => {
+    const content = fs.readFileSync( path, 'utf-8' );
+
+    const logs = content.split(`\n`).map(
+      log => LogEntity.fromJson(log)
+    )
+
+    return logs;
+  }
+
+  async getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
+    switch ( severityLevel ){
+      case LogSeverityLevel.low:
+        return this.getLogsFromFile(this.allLogsPath);
+
+      case LogSeverityLevel.medium:
+        return this.getLogsFromFile(this.mediumLogPath);
+
+      case LogSeverityLevel.high:
+        return this.getLogsFromFile(this.highLogPath);
+
+      default:
+        throw new Error(`${severityLevel} not implemented`);
+    }
   }
 
 }
