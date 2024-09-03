@@ -10,7 +10,12 @@ export class Server {
         const date = new Date();
         console.log('5 seconds', date);
 
-        new CheckService().execute('https://google.com')
+        const url = 'https://google.com';
+
+        new CheckService(
+          () => console.log(`${url} is ok`),
+          ( error ) => console.log(error)
+        ).execute(url)
       }
     )
   }
