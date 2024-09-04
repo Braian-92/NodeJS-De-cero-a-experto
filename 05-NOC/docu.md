@@ -42,3 +42,16 @@ npm i dotenv
 ## instalar env-var (validador de .env)
 https://www.npmjs.com/package/env-var
 npm i env-var
+
+
+## configurar mail de gmail
+https://myaccount.google.com/security
+https://myaccount.google.com/u/0/apppasswords
+
+## instalar nodemailer
+https://www.npmjs.com/package/nodemailer
+npm i nodemailer
+docu: https://nodemailer.com/about/
+
+## como nodemailer no esta echo en ts se bajas las definiciones
+npm i --save-dev @types/nodemailer

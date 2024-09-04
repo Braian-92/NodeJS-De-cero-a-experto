@@ -16,7 +16,7 @@ export class Server {
         const date = new Date();
         console.log('5 seconds', date);
 
-        const url = 'https://google.comas';
+        const url = 'https://google.com';
 
         new CheckService(
           fileSistemLogRepository,
