@@ -31,3 +31,14 @@ npm i cron
 
 ## se ejecuta el cron desde 
 npm run dev 
+
+
+
+## instalar dotenv
+
+https://www.npmjs.com/package/dotenv
+npm i dotenv
+
+## instalar env-var (validador de .env)
+https://www.npmjs.com/package/env-var
+npm i env-var
