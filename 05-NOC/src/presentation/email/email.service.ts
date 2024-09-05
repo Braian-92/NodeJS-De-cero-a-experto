@@ -1,6 +1,10 @@
 import nodemailer from 'nodemailer';
 import fs from 'fs';
+import path from 'path';
+
 import { envs } from '../../config/plugins/envs.plugins';
+import { LogRepository } from '../../domain/repository/log.repository';
+import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
 
 interface SendMailOptions {
   to: string | string[];
@@ -23,6 +27,10 @@ export class EmailService {
     }
   });
 
+  constructor(
+    private readonly logRepository: LogRepository
+  ){}
+
 
   async sendMail(options: SendMailOptions):Promise<boolean> {
 
@@ -39,8 +47,25 @@ export class EmailService {
 
       console.log(sentInformation);
 
+      const log = new LogEntity({
+        level: LogSeverityLevel.low,
+        message: 'Email Sent',
+        origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
+      });
+      this.logRepository.saveLog(log);
+
       return true;
+
     } catch (error) {
+      console.log(error);
+      const log = new LogEntity({
+        level: LogSeverityLevel.high,
+        message: `Email not Sent ${error}`,
+        origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
+      });
+      console.log(log);
+      this.logRepository.saveLog(log);
+
       return false;
     }
   }
@@ -56,19 +81,23 @@ export class EmailService {
       { filename: 'logs-high.log', path: './logs/logs-high.log' },
       { filename: 'logs-medium.log', path: './logs/logs-medium.log' },
     ];
-    console.log(` Verificar existencia de los archivos `);
+
+
+    // console.log(` Verificar existencia de los archivos `);
     attachements.forEach(attachment => {
       if (fs.existsSync(attachment.path)) {
-        console.log(`El archivo ${attachment.filename} existe en la ruta ${attachment.path}`);
+        // console.log(`El archivo ${attachment.filename} existe en la ruta ${attachment.path}`);
       } else {
         console.log(`El archivo ${attachment.filename} NO existe en la ruta ${attachment.path}`);
       }
     });
-    console.log(` Buscar archivos del directorio log para validar como se llaman realmente `);
+
+
+    // console.log(` Buscar archivos del directorio log para validar como se llaman realmente `);
     const directoryPath = './logs/';
     try {
       const files = fs.readdirSync(directoryPath);
-      console.log(`Contenido del directorio ${directoryPath}:`);
+      // console.log(`Contenido del directorio ${directoryPath}:`);
       files.forEach(file => {
         console.log(file);
       });

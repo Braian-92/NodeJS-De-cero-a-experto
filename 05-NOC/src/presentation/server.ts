@@ -11,7 +11,9 @@ export class Server {
   public static start() {
     console.log('Server started...')
 
-    const emailService = new EmailService();
+    const emailService = new EmailService(
+      fileSistemLogRepository
+    );
 
     //! metodo de envio de mail sin archivos adjuntos
     // emailService.sendMail({

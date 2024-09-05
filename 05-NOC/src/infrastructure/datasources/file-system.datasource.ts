@@ -34,6 +34,7 @@ export class FileSystemDatasource implements LogDatasource {
   }
 
   async saveLog(newLog: LogEntity): Promise<void> {
+    console.log('function saveLog');
     
     const logAsJson = `${JSON.stringify(newLog)}\n`;
     
