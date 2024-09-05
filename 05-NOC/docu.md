@@ -58,3 +58,7 @@ npm i --save-dev @types/nodemailer
 
 ## enviar adjuntos en nodemailer docu
 https://nodemailer.com/message/attachments/
+
+
+## dockerhub mongo
+https://hub.docker.com/_/mongo
