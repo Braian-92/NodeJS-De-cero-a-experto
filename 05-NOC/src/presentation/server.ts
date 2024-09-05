@@ -1,4 +1,5 @@
 import { CheckService } from "../domain/use-cases/checks/check-service"; 
+import { SendMailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImp } from "../infrastructure/repositories/log.repository.imp";
 import { CronService } from "./cron/cron-service"
@@ -7,13 +8,18 @@ import { EmailService } from "./email/email.service";
 const fileSistemLogRepository = new LogRepositoryImp(
   new FileSystemDatasource()
 );
+
+const emailService = new EmailService();
 export class Server {
   public static start() {
     console.log('Server started...')
 
-    const emailService = new EmailService(
-      fileSistemLogRepository
-    );
+    // new SendMailLogs(
+    //   emailService,
+    //   fileSistemLogRepository
+    // ).execute(
+    //   ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
+    // )
 
     //! metodo de envio de mail sin archivos adjuntos
     // emailService.sendMail({
@@ -25,9 +31,10 @@ export class Server {
     //   `
     // })
 
-    emailService.sendEmailWithFileSystemLogs(
-      ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
-    )
+    //! enviar mail multiples con logs adjuntos
+    // emailService.sendEmailWithFileSystemLogs(
+    //   ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
+    // )
 
     //! cron para revisar sitio cada cierto tiempo
     // CronService.createJob(

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { envs } from '../../config/plugins/envs.plugins';
-import { LogRepository } from '../../domain/repository/log.repository';
+// import { LogRepository } from '../../domain/repository/log.repository';
 import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
 
 interface SendMailOptions {
@@ -28,7 +28,7 @@ export class EmailService {
   });
 
   constructor(
-    private readonly logRepository: LogRepository
+    // private readonly logRepository: LogRepository
   ){}
 
 
@@ -47,24 +47,24 @@ export class EmailService {
 
       console.log(sentInformation);
 
-      const log = new LogEntity({
-        level: LogSeverityLevel.low,
-        message: 'Email Sent',
-        origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
-      });
-      this.logRepository.saveLog(log);
+      // const log = new LogEntity({
+      //   level: LogSeverityLevel.low,
+      //   message: 'Email Sent',
+      //   origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
+      // });
+      // this.logRepository.saveLog(log);
 
       return true;
 
     } catch (error) {
       console.log(error);
-      const log = new LogEntity({
-        level: LogSeverityLevel.high,
-        message: `Email not Sent ${error}`,
-        origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
-      });
-      console.log(log);
-      this.logRepository.saveLog(log);
+      // const log = new LogEntity({
+      //   level: LogSeverityLevel.high,
+      //   message: `Email not Sent ${error}`,
+      //   origin: path.basename(__filename)  // Extrae solo el nombre del archivo actual
+      // });
+      // console.log(log);
+      // this.logRepository.saveLog(log);
 
       return false;
     }
