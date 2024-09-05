@@ -12,15 +12,22 @@ export class Server {
     console.log('Server started...')
 
     const emailService = new EmailService();
-    emailService.sendMail({
-      to: 'nattecheira@gmail.com',
-      subject: 'Logs de sistema',
-      htmlBody: `
-      <h3>Logs de sistema - NOC</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      `
-    })
 
+    //! metodo de envio de mail sin archivos adjuntos
+    // emailService.sendMail({
+    //   to: 'nattecheira@gmail.com',
+    //   subject: 'Logs de sistema 2',
+    //   htmlBody: `
+    //   <h3>Logs de sistema - NOC</h3>
+    //   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    //   `
+    // })
+
+    emailService.sendEmailWithFileSystemLogs(
+      ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
+    )
+
+    //! cron para revisar sitio cada cierto tiempo
     // CronService.createJob(
     //   '*/5 * * * * *',
     //   () => {

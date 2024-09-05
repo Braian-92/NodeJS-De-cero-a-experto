@@ -55,3 +55,6 @@ docu: https://nodemailer.com/about/
 
 ## como nodemailer no esta echo en ts se bajas las definiciones
 npm i --save-dev @types/nodemailer
+
+## enviar adjuntos en nodemailer docu
+https://nodemailer.com/message/attachments/
