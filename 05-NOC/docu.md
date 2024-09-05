@@ -62,3 +62,6 @@ https://nodemailer.com/message/attachments/
 
 ## dockerhub mongo
 https://hub.docker.com/_/mongo
+
+# ejecutar
+docker compose up
