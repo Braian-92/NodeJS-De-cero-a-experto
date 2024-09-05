@@ -65,3 +65,13 @@ https://hub.docker.com/_/mongo
 
 # ejecutar
 docker compose up
+docker compose up -d (sin impreciones del contenedor)
+
+# para conectarse a la BD utilizar por ejemplo
+
+https://www.mongodb.com/products/tools/compass
+
+para poner las credenciales ir a advanced conection options y al apartado de Authentication para poner usuario y contraseña admin-admin
+
+# tambien se puede tomar la cadena de conexion desde la parte superior
+mongodb://admin:admin@localhost:27017/
