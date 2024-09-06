@@ -30,11 +30,11 @@ async function main(){
   // console.log(newLog);
   
   //! baja la tabla completa si no se llana find()
-  const logs = await LogModel.find();
-  console.log(logs);
+  // const logs = await LogModel.find();
+  // console.log(logs);
 
 
   console.log('Mongo');
-  // Server.start();
+  Server.start();
   
 }

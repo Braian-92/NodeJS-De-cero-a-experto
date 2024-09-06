@@ -1,3 +1,5 @@
+import { MongoLogDatasource } from "../domain/datasouces/mongo-log.datasource";
+import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service"; 
 import { SendMailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
@@ -5,18 +7,19 @@ import { LogRepositoryImp } from "../infrastructure/repositories/log.repository.
 import { CronService } from "./cron/cron-service"
 import { EmailService } from "./email/email.service";
 
-const fileSistemLogRepository = new LogRepositoryImp(
-  new FileSystemDatasource()
+const logRepository = new LogRepositoryImp(
+  new FileSystemDatasource(),
+  // new MongoLogDatasource()
 );
 
 const emailService = new EmailService();
 export class Server {
-  public static start() {
+  public static async start() {
     console.log('Server started...')
 
     // new SendMailLogs(
     //   emailService,
-    //   fileSistemLogRepository
+    //   logRepository
     // ).execute(
     //   ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
     // )
@@ -36,6 +39,9 @@ export class Server {
     //   ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
     // )
 
+    const logs = await logRepository.getLogs(LogSeverityLevel.low)
+    console.log(logs);
+
     //! cron para revisar sitio cada cierto tiempo
     // CronService.createJob(
     //   '*/5 * * * * *',
@@ -46,11 +52,12 @@ export class Server {
     //     const url = 'https://google.com';
 
     //     new CheckService(
-    //       fileSistemLogRepository,
+    //       logRepository,
     //       () => console.log(`${url} is ok`),
     //       ( error ) => console.log(error)
     //     ).execute(url)
     //   }
     // )
+
   }
 }
