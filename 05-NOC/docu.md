@@ -99,3 +99,6 @@ y se va a generar la carpeta prosma y hay que colocar el nombre que elejimos con
 05-NOC\prisma\schema.prisma
 
 POSTGRES_URL="postgresql://postgres:123456@localhost:5432/NOC"
+
+
+npx prisma migrate dev --name init
