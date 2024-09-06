@@ -75,3 +75,8 @@ para poner las credenciales ir a advanced conection options y al apartado de Aut
 
 # tambien se puede tomar la cadena de conexion desde la parte superior
 mongodb://admin:admin@localhost:27017/
+
+# instalar mongoose
+https://mongoosejs.com/docs/index.html
+
+npm install mongoose --save

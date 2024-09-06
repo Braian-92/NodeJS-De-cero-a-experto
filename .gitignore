@@ -132,4 +132,4 @@ dist
 
 # no subir el volumen de docker de mongo
 
-mongo/
+05-NOC/mongo/
