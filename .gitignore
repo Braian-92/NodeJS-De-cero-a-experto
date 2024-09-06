@@ -133,3 +133,4 @@ dist
 # no subir el volumen de docker de mongo
 
 05-NOC/mongo/
+05-NOC/postgres/

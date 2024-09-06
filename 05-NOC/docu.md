@@ -82,3 +82,6 @@ https://mongoosejs.com/docs/index.html
 npm install mongoose --save
 
 CTRL + R = recargar MongoDB Compass
+
+# instalar postgres
+https://hub.docker.com/_/postgres
