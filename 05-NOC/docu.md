@@ -85,3 +85,17 @@ CTRL + R = recargar MongoDB Compass
 
 # instalar postgres
 https://hub.docker.com/_/postgres
+
+# instalar prisma (integrar bd postgres en node)
+https://www.prisma.io/docs/orm/tools/prisma-cli#installation
+
+npm install prisma --save-dev
+
+npx prisma init --datasource-provider PostgreSQL
+
+
+se va a generar el ejemplo del env en el .env
+y se va a generar la carpeta prosma y hay que colocar el nombre que elejimos con en link de la conexion y las credenciales
+05-NOC\prisma\schema.prisma
+
+POSTGRES_URL="postgresql://postgres:123456@localhost:5432/NOC"
