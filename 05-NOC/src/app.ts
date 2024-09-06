@@ -21,15 +21,20 @@ async function main(){
 
 
   //! Crear una colección = tabla, documento = registro (row)
-  const newLog = await LogModel.create({
-    message: 'Test message desde Mongo',
-    origin: path.basename(__filename),
-    level: 'low'
-  })
+  // const newLog = await LogModel.create({
+    // message: 'Test message desde Mongo',
+    // origin: path.basename(__filename),
+    // level: 'low'
+  // })
+  // await newLog.save()
+  // console.log(newLog);
+  
+  //! baja la tabla completa si no se llana find()
+  const logs = await LogModel.find();
+  console.log(logs);
 
-  await newLog.save()
 
-  console.log(newLog);
+  console.log('Mongo');
   // Server.start();
   
 }
