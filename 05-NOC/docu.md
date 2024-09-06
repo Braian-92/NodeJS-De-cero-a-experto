@@ -80,3 +80,5 @@ mongodb://admin:admin@localhost:27017/
 https://mongoosejs.com/docs/index.html
 
 npm install mongoose --save
+
+CTRL + R = recargar MongoDB Compass
