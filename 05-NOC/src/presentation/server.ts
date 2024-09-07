@@ -1,4 +1,4 @@
-import { MongoLogDatasource } from "../domain/datasouces/mongo-log.datasource";
+import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
 import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service"; 
 import { SendMailLogs } from "../domain/use-cases/email/send-email-logs";
@@ -39,8 +39,8 @@ export class Server {
     //   ['necrofagodelamente@hotmail.com', 'nattecheira@gmail.com']
     // )
 
-    const logs = await logRepository.getLogs(LogSeverityLevel.low)
-    console.log(logs);
+    // const logs = await logRepository.getLogs(LogSeverityLevel.low)
+    // console.log(logs);
 
     //! cron para revisar sitio cada cierto tiempo
     // CronService.createJob(
