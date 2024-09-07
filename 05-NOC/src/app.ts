@@ -31,12 +31,12 @@ async function main(){
   // });
   // console.log( newLog );
   
-  const logs = await prisma.logModel.findMany({
-    where: {
-      level: 'MEDIUM'
-    }
-  })
-  console.log( logs );
+  // const logs = await prisma.logModel.findMany({
+  //   where: {
+  //     level: 'MEDIUM'
+  //   }
+  // })
+  // console.log( logs );
 
 
   //! Crear una colección = tabla, documento = registro (row)
@@ -54,6 +54,6 @@ async function main(){
 
 
   // console.log('Mongo');
-  // Server.start();
+  Server.start();
   
 }

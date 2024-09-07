@@ -1,15 +1,20 @@
-import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
 import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service"; 
 import { SendMailLogs } from "../domain/use-cases/email/send-email-logs";
+
+import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
+import { PostgresLogDatasource } from "../infrastructure/datasources/postgres-log.datasource";
+
+
 import { LogRepositoryImp } from "../infrastructure/repositories/log.repository.imp";
 import { CronService } from "./cron/cron-service"
 import { EmailService } from "./email/email.service";
 
 const logRepository = new LogRepositoryImp(
-  new FileSystemDatasource(),
+  // new FileSystemDatasource()
   // new MongoLogDatasource()
+  new PostgresLogDatasource()
 );
 
 const emailService = new EmailService();
@@ -43,21 +48,21 @@ export class Server {
     // console.log(logs);
 
     //! cron para revisar sitio cada cierto tiempo
-    // CronService.createJob(
-    //   '*/5 * * * * *',
-    //   () => {
-    //     const date = new Date();
-    //     console.log('5 seconds', date);
+    CronService.createJob(
+      '*/5 * * * * *',
+      () => {
+        const date = new Date();
+        console.log('5 seconds', date);
 
-    //     const url = 'https://google.com';
+        const url = 'https://google.com';
 
-    //     new CheckService(
-    //       logRepository,
-    //       () => console.log(`${url} is ok`),
-    //       ( error ) => console.log(error)
-    //     ).execute(url)
-    //   }
-    // )
+        new CheckService(
+          logRepository,
+          () => console.log(`${url} is ok`),
+          ( error ) => console.log(error)
+        ).execute(url)
+      }
+    )
 
   }
 }
