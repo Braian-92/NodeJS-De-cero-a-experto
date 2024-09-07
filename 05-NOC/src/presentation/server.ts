@@ -1,5 +1,6 @@
 import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service"; 
+import { CheckServiceMultiple } from "../domain/use-cases/checks/check-service-multiple"; 
 import { SendMailLogs } from "../domain/use-cases/email/send-email-logs";
 
 import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
@@ -16,6 +17,19 @@ const logRepository = new LogRepositoryImp(
   // new MongoLogDatasource()
   new PostgresLogDatasource()
 );
+
+const fsLogRepository = new LogRepositoryImp(
+  new FileSystemDatasource()
+);
+
+const mongoLogRepository = new LogRepositoryImp(
+  new MongoLogDatasource()
+);
+
+const postgresLogRepository = new LogRepositoryImp(
+  new PostgresLogDatasource()
+);
+
 
 const emailService = new EmailService();
 export class Server {
@@ -48,21 +62,47 @@ export class Server {
     // console.log(logs);
 
     //! cron para revisar sitio cada cierto tiempo
-    CronService.createJob(
-      '*/5 * * * * *',
-      () => {
-        const date = new Date();
-        console.log('5 seconds', date);
+    // CronService.createJob(
+    //   '*/5 * * * * *',
+    //   () => {
+    //     const date = new Date();
+    //     console.log('5 seconds', date);
 
-        const url = 'https://google.com';
+    //     const url = 'https://google.com';
 
-        new CheckService(
-          logRepository,
-          () => console.log(`${url} is ok`),
-          ( error ) => console.log(error)
-        ).execute(url)
-      }
-    )
+    //     new CheckService(
+    //       logRepository,
+    //       () => console.log(`${url} is ok`),
+    //       ( error ) => console.log(error)
+    //     ).execute(url)
+    //   }
+    // )
+
+    //! cron para revisar sitio cada cierto tiempo (MULTIPLE)
+    // CronService.createJob(
+    //   '*/5 * * * * *',
+    //   () => {
+    //     const date = new Date();
+    //     console.log('5 seconds', date);
+
+    //     const url = 'https://google.com';
+
+    //     new CheckServiceMultiple(
+    //       [fsLogRepository, mongoLogRepository, postgresLogRepository],
+    //       () => console.log(`${url} is ok`),
+    //       ( error ) => console.log(error)
+    //     ).execute(url)
+    //   }
+    // )
+
+    //! metodo unico multiple
+    const url = 'https://google.com';
+
+    new CheckServiceMultiple(
+      [fsLogRepository, mongoLogRepository, postgresLogRepository],
+      () => console.log(`${url} is ok`),
+      ( error ) => console.log(error)
+    ).execute(url)
 
   }
 }

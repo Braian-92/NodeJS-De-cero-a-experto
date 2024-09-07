@@ -24,6 +24,8 @@ export class PostgresLogDatasource implements LogDatasource{
       }
     });
     console.log( newLog );
+
+    console.log('Log en PostgresLogDatasource');
   }
 
   async getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {

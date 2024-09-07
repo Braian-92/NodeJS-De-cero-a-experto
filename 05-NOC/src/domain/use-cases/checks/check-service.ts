@@ -28,7 +28,7 @@ export class CheckService implements CheckServiceUseCase {
       })
       this.logRepository.saveLog(log)
       this.successCallback && this.successCallback()
-      console.log(`${url} is ok`)
+      // console.log(`${url} is ok`)
       return true
     } catch (error) {
       const errorMessage = `${url} is not ok. ${error}`

@@ -8,7 +8,7 @@ interface CheckServiceMultipleUseCase {
 type SuccessCallback = (() => void) | undefined
 type ErrorCallback = ((error: string) => void) | undefined
 
-export class CheckService implements CheckServiceMultipleUseCase {
+export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
   constructor(
     private readonly logRepository: LogRepository[],
     private readonly successCallback: SuccessCallback,
@@ -32,9 +32,9 @@ export class CheckService implements CheckServiceMultipleUseCase {
         level: LogSeverityLevel.low,
         origin: 'check-service.ts'
       })
-      this.logRepository.saveLog(log)
+      this.callLogs(log)
       this.successCallback && this.successCallback()
-      console.log(`${url} is ok`)
+      // console.log(`${url} is ok`)
       return true
     } catch (error) {
       const errorMessage = `${url} is not ok. ${error}`
@@ -43,7 +43,7 @@ export class CheckService implements CheckServiceMultipleUseCase {
         level: LogSeverityLevel.high,
         origin: 'check-service.ts'
       })
-      this.logRepository.saveLog(log)
+      this.callLogs(log)
       console.log(`${error}`)
       this.errorCallback && this.errorCallback(`${error}`)
       return false

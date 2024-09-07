@@ -34,21 +34,24 @@ export class FileSystemDatasource implements LogDatasource {
   }
 
   async saveLog(newLog: LogEntity): Promise<void> {
-    // console.log('function saveLog');
     
     const logAsJson = `${JSON.stringify(newLog)}\n`;
     
     fs.appendFileSync( this.allLogsPath , logAsJson)
 
-    if( newLog.level === LogSeverityLevel.low ) return;
 
-    if( newLog.level === LogSeverityLevel.medium ) {
+    // if( newLog.level === LogSeverityLevel.low ) return;
+
+
+    if( newLog.level === LogSeverityLevel.low ) {
+      fs.appendFileSync( this.allLogsPath , logAsJson)
+    }else if( newLog.level === LogSeverityLevel.medium ) {
       fs.appendFileSync( this.mediumLogPath , logAsJson)
     }else{
       fs.appendFileSync( this.highLogPath , logAsJson)
     }
 
-
+    console.log('Log en FileSystemDatasource');
 
   }
 
