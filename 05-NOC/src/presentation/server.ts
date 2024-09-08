@@ -96,13 +96,13 @@ export class Server {
     // )
 
     //! metodo unico multiple
-    const url = 'https://google.com';
+    // const url = 'https://google.com';
 
-    new CheckServiceMultiple(
-      [fsLogRepository, mongoLogRepository, postgresLogRepository],
-      () => console.log(`${url} is ok`),
-      ( error ) => console.log(error)
-    ).execute(url)
+    // new CheckServiceMultiple(
+    //   [fsLogRepository, mongoLogRepository, postgresLogRepository],
+    //   () => console.log(`${url} is ok`),
+    //   ( error ) => console.log(error)
+    // ).execute(url)
 
   }
 }

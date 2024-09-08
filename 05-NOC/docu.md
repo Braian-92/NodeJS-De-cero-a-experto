@@ -102,3 +102,31 @@ POSTGRES_URL="postgresql://postgres:123456@localhost:5432/NOC"
 
 
 npx prisma migrate dev --name init
+
+####### IMPORTANTE PRISMA ###### 
+para inicializarlo si se borra 
+npx prisma generate
+npm prisma migrate dev
+
+## TESTING 
+
+npm install -D jest @types/jest ts-jest supertest
+
+npx jest --init
+colcar cuando consulte: yes, yes, nodes, yes, v8, no
+
+el archivo tendria que quedar tal cual de esta manera
+
+jest.config.ts
+
+###################
+import type {Config} from 'jest';
+
+const config: Config = {
+  collectCoverage: true,
+  coverageProvider: "v8",
+  preset: 'ts-node' //! agregar manalmente
+};
+
+export default config;
+###################
