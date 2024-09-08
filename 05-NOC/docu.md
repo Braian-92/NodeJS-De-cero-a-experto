@@ -125,8 +125,16 @@ import type {Config} from 'jest';
 const config: Config = {
   collectCoverage: true,
   coverageProvider: "v8",
-  preset: 'ts-node' //! agregar manalmente
+  testEnvironment: 'node',  
+  preset: 'ts-jest'
 };
 
 export default config;
+
 ###################
+
+agregar los scripts
+
+"test": "jest",
+"test:watch": "jest --watch",
+"test:coverage": "jest --coverage",

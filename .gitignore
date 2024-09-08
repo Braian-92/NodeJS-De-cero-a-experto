@@ -134,3 +134,6 @@ dist
 
 05-NOC/mongo/
 05-NOC/postgres/
+
+05-NOC/mongo-test/
+05-NOC/postgres-test/

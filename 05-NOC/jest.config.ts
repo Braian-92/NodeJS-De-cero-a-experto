@@ -3,7 +3,8 @@ import type {Config} from 'jest';
 const config: Config = {
   collectCoverage: true,
   coverageProvider: "v8",
-  preset: 'ts-node'
+  testEnvironment: 'node',  
+  preset: 'ts-jest'
 };
 
 export default config;
