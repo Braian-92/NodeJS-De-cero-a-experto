@@ -4,7 +4,10 @@ const config: Config = {
   collectCoverage: true,
   coverageProvider: "v8",
   testEnvironment: 'node',  
-  preset: 'ts-jest'
+  preset: 'ts-jest',
+  setupFiles: [
+    '<rootDir>/setupTest.ts'
+  ]
 };
 
 export default config;
