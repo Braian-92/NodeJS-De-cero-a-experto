@@ -16,6 +16,7 @@ describe('log.model.test.ts', () => {
   })
 
   test('should return LogModel', async () => {
+    expect(true).toBe(true)
     const logData = {
       origin: 'log.model.test.ts',
       message: 'test-message',
@@ -31,5 +32,30 @@ describe('log.model.test.ts', () => {
         id: expect.any(String)
       })
     )
+
+    await LogModel.findByIdAndDelete( log.id );
+
+
   })
+
+  test('should return the schema object', () => {
+    const schema = LogModel.schema.obj;
+    // console.log(schema);
+
+    expect( schema ).toEqual( expect.objectContaining({
+      message: { type: expect.any(Function), required: true },
+      origin: { type: expect.any(Function), default: 'Sin definir.' },
+      level: {
+        type: expect.any(Function),
+        enum: [ 'low', 'medium', 'high' ],
+        default: 'low'
+      },
+      createdAt: expect.any(Object)
+    }) )
+  })
+
+
+  
+
+
 })
