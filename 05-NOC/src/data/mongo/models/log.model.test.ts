@@ -15,8 +15,12 @@ describe('log.model.test.ts', () => {
     mongoose.connection.close()
   })
 
+  // test('force test', () => {
+  //   expect(true).toBe(true)
+  // })
+
   test('should return LogModel', async () => {
-    expect(true).toBe(true)
+    // expect(true).toBe(true)
     const logData = {
       origin: 'log.model.test.ts',
       message: 'test-message',
@@ -24,7 +28,7 @@ describe('log.model.test.ts', () => {
     }
 
     const log = await LogModel.create(logData)
-    console.log(log)
+    // console.log(log)
     expect(log).toEqual(
       expect.objectContaining({
         ...logData,
@@ -52,6 +56,7 @@ describe('log.model.test.ts', () => {
       },
       createdAt: expect.any(Object)
     }) )
+
   })
 
 
