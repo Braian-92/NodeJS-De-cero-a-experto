@@ -135,6 +135,14 @@ export default config;
 
 agregar los scripts
 
-"test": "jest",
-"test:watch": "jest --watch",
-"test:coverage": "jest --coverage",
+"test": "npm run docker:test && jest",
+"test:watch": "npm run docker:test && jest --watch",
+"test:coverage": "npm run docker:test && jest --coverage"
+
+
+## para corret los test 
+npm run test:watch
+
+## visualizar los test en el exportado
+05-NOC/coverage/lcov-report/index.html
+
