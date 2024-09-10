@@ -19,3 +19,6 @@ npx tsc --init --outDir dist/ --rootDir src
 
 ######## EJECUTAR ########
 npm run dev
+
+abrir el servidor en 
+http://localhost:8080/

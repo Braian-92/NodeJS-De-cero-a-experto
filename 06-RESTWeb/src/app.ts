@@ -3,7 +3,9 @@ import http from 'http';
 const server = http.createServer((req, res) => {
   console.log(req.url)
 
-  res.write('hola mundo');
+  res.writeHead(200, {'Content-Type': 'text/html'})
+
+  res.write('<h1>Hola mundo!</h1>');
   res.end()
 })
 
