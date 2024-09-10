@@ -40,12 +40,13 @@ export class FileSystemDatasource implements LogDatasource {
     fs.appendFileSync( this.allLogsPath , logAsJson)
 
 
-    // if( newLog.level === LogSeverityLevel.low ) return;
+    if( newLog.level === LogSeverityLevel.low ) return;
 
 
-    if( newLog.level === LogSeverityLevel.low ) {
-      fs.appendFileSync( this.allLogsPath , logAsJson)
-    }else if( newLog.level === LogSeverityLevel.medium ) {
+    // if( newLog.level === LogSeverityLevel.low ) {
+      // fs.appendFileSync( this.allLogsPath , logAsJson)
+    // }else 
+    if( newLog.level === LogSeverityLevel.medium ) {
       fs.appendFileSync( this.mediumLogPath , logAsJson)
     }else{
       fs.appendFileSync( this.highLogPath , logAsJson)
