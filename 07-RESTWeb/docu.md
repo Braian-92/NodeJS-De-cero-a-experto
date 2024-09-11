@@ -65,3 +65,11 @@ http://localhost:3000/
 ######### opcional instalar htt-server GLOBAL #####
 //! abrir la consola como admin
 npm i -g http-server
+
+
+ya que los .env no se guardan en el repo cambiar el 
+
+.env.templete por el .env
+
+######### INSTALAR dotenv ######### (interpretador de variables de entorno)
+npm i dotenv env-var
