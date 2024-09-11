@@ -22,3 +22,26 @@ npm run dev
 
 abrir el servidor en 
 http://localhost:8080/
+
+## crear certificados openssl
+//! recordar poner la consola en el directorio donde esta el proyecto ya que generara los archivos donde se encuentre alojado el actual CD
+
+en powershel al tenes instalado git colocar "openssl"
+si no aparece nada como si no estuviera activado buscar en inicio env
+INICIO -> buscar 'env' -> variables de entorno
+-> editar el que dice 'path'
+
+buscar el archivo en donde esta instalado el openssl de git en mi caso:
+
+C:\Program Files\Git\usr\bin\openssl.exe
+y agregar en path el siguiente directorio
+C:\Program Files\Git\usr\bin\
+
+--> guardar cambios, cerrar el powershel y volverlo a abrir y ejecutar "openssl" para verificar que ya este funcionando
+
+## ahora pegar el siguiente comando
+
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
+
+nos pregunta el pais: AR
+cual es el estado: BUENOS AIRES
