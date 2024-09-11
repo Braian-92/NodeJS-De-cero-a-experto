@@ -49,3 +49,11 @@ etc. etc.
 
 ahora se puede ingresar al sitio por
 https://localhost:8080/
+
+############## INSTALAR EXPRESS ##############
+https://expressjs.com/
+npm install express
+
+
+### instalar tipado de expres en ts ###
+npm i --save-dev @types/express
