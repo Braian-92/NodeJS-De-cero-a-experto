@@ -57,3 +57,11 @@ npm install express
 
 ### instalar tipado de expres en ts ###
 npm i --save-dev @types/express
+
+el servidor correra sobre
+http://localhost:3000/
+
+
+######### opcional instalar htt-server GLOBAL #####
+//! abrir la consola como admin
+npm i -g http-server
