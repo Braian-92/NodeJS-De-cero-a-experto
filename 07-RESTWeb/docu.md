@@ -73,3 +73,16 @@ ya que los .env no se guardan en el repo cambiar el
 
 ######### INSTALAR dotenv ######### (interpretador de variables de entorno)
 npm i dotenv env-var
+
+
+## desplegar aplicaciones de node en https://railway.app
+
+enlazar con cuenta de git, va a pedir validar seguridad desde el dispositivo movil
+seleccionar el repo que creamos con el capitulo 7 
+
+lego seleccionamos el repo y le damos en ejecutar
+cuando finalice para crear un link hay que ir a settings 
+public HTTP networking -> generate domain
+
+en mi caso el link fue este:
+https://node-webrest-server-production-44a5.up.railway.app/marvel
