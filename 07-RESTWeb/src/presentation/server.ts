@@ -9,7 +9,7 @@ export class Server {
     //! Middlewares
 
     //! Public folder
-    this.app.use( express.static( '/public' ) )
+    this.app.use( express.static( 'public' ) )
 
 
     this.app.listen(3000, () => {
