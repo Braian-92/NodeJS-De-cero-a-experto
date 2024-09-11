@@ -45,3 +45,7 @@ openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout server.key -
 
 nos pregunta el pais: AR
 cual es el estado: BUENOS AIRES
+etc. etc.
+
+ahora se puede ingresar al sitio por
+https://localhost:8080/

@@ -2,8 +2,8 @@ import http2 from 'http2';
 import fs from 'fs';
 
 const server = http2.createSecureServer({
-  key: '',
-  cert: '',
+  key: fs.readFileSync('./keys/server.key'),
+  cert: fs.readFileSync('./keys/server.crt'),
 }, (req, res) => {
   console.log(req.url)
 
@@ -35,9 +35,14 @@ const server = http2.createSecureServer({
   }else if(req.url?.includes('.css')){
     res.writeHead(200, { 'Content-type': 'text/css' })
   }
-
-  const responseContent = fs.readFileSync(`./public${ req.url }`, 'utf-8')
-  res.end( responseContent )
+  try {
+    const responseContent = fs.readFileSync(`./public${ req.url }`, 'utf-8')
+    res.end( responseContent )
+  } catch (error) {
+    res.writeHead(404, { 'Content-type': 'text/html' })
+    res.end()
+  }
+  
 })
 
 
