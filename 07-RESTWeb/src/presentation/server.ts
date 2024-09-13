@@ -24,6 +24,8 @@ export class Server {
   async start(){
 
     //! Middlewares
+    this.app.use( express.json() ) //! serializador de respuesta => raw
+    this.app.use( express.urlencoded({extended:true}) ) //! serializador de respuesta => x-www-form-urlencoded
 
     //! Public folder
     this.app.use( express.static( this.public_path ) )

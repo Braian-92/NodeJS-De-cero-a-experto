@@ -86,3 +86,7 @@ public HTTP networking -> generate domain
 
 en mi caso el link fue este:
 https://node-webrest-server-production-44a5.up.railway.app/marvel
+
+
+## ejemplos de status code para api
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status

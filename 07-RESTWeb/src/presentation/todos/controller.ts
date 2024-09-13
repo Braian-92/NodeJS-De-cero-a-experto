@@ -19,11 +19,16 @@ export class TodosController {
   public getTodoById = (req:Request, res:Response) => {
     //! el + convierte el valor en numerico
     const id = +req.params.id;
-    if(isNan(id)) return res.status(404).json({ error: `ID argument is not a number`})
+    if(isNaN(id)) return res.status(404).json({ error: `ID argument is not a number`})
     const todo = todos.find( todo => todo.id === id );
     
     ( todo )
       ? res.json( todo )
       : res.status(404).json({ error: `Todo with id ${id} not found`})
-  }
+  };
+
+  public createTodo = (req:Request, res:Response) => {
+    const body = req.body;
+    res.json(body)
+  };
 }
