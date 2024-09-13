@@ -25,6 +25,14 @@ export class Server {
     //! Public folder
     this.app.use( express.static( this.public_path ) )
 
+    this.app.get('/api/todos', (req, res) => {
+      res.json([
+        { id: 1, text: 'milk', createdAt: new Date() },
+        { id: 1, text: 'bread', createdAt: null },
+        { id: 1, text: 'butter', createdAt: new Date() },
+      ])
+    })
+    //! SPA
     this.app.get('*', (req, res) => {
       /* console.log(req.url);
       res.send('Hola mundo!') */
@@ -33,7 +41,7 @@ export class Server {
       return;
     })
 
-
+    
     this.app.listen(this.port, () => {
       console.log(`Server running on PORT ${this.port}`);
     })
