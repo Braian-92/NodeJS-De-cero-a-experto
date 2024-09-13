@@ -90,3 +90,7 @@ https://node-webrest-server-production-44a5.up.railway.app/marvel
 
 ## ejemplos de status code para api
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+## ya actualizado el repo "node-webrest-server" 
+podemos acceder a la api en el siguiente link
+https://node-webrest-server-production-44a5.up.railway.app/api/todos/
