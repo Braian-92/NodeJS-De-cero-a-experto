@@ -15,6 +15,7 @@ export class TodoRoutes {
     // router.get('/', (req, res) => todoController.getTodos(req, res) );
     //! Método corto: cuando los parámetros de la función son los mismos que se van a enviar al callback, se pueden obviar ambos.
     router.get('/', todoController.getTodos );
+    router.get('/:id', todoController.getTodoById );
 
 
     return router;
