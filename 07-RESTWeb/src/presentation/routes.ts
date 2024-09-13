@@ -16,7 +16,7 @@ export class AppRoutes {
 
     // router.get('/api/todos', (req, res) => todoController.getTodos(req, res) );
     //! Método corto: cuando los parámetros de la función son los mismos que se van a enviar al callback, se pueden obviar ambos.
-    router.get('/api/todos', TodoRoutes.routes );
+    router.use('/api/todos', TodoRoutes.routes );
 
 
     return router;
