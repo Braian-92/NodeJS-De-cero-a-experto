@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../data/postgres';
+import { CreateTodoDto } from '../../domain/dtos/';
 
 // const todos = [
 //   { id: 1, text: 'milk', completeAt: new Date() },
@@ -35,16 +36,16 @@ export class TodosController {
 
   //! POST
   public createTodo = async(req:Request, res:Response) => {
-    const { text } = req.body;
-
-    if( !text ) return res.status(404).json({ error: `Text property is required`});
-
+    const [error, createTodoDto] = CreateTodoDto.create(req.body);
+    
+    if( error ) return res.status( 400 ).json({ error });
+    if (!createTodoDto) return res.status(500).json({ error: 'Unexpected error: DTO not created.' });
 
     const todo = await prisma.todo.create({
       data: {
-        text
+        text: createTodoDto?.getText(),
       }
-    })
+    });
 
     res.json(todo)
   };
@@ -83,8 +84,13 @@ export class TodosController {
 
     const deleted = await prisma.todo.delete({
       where: { id }
-    })
-    res.json({ todo, deleted });
+    });
+
+    ( deleted )
+      ? res.json( deleted )
+      : res.status( 400 ).json({
+        error: `Todo with id ${ id } not found`
+      })
   }
 
 }
