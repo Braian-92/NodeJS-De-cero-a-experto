@@ -94,3 +94,17 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 ## ya actualizado el repo "node-webrest-server" 
 podemos acceder a la api en el siguiente link
 https://node-webrest-server-production-44a5.up.railway.app/api/todos/
+
+
+## ejecutar contenedor con base de datos postgres
+docker compose up -d
+
+## instalar prisma para postgres en node
+
+https://www.prisma.io/docs/getting-started/quickstart
+
+npm install prisma --save-dev
+
+npx prisma init --datasource-provider postgresql
+
+## despues de este comando se puede visualizar la creación de la carpeta prisma en el directorio y ademas una nueva variable de entorno en el .env llamada DATABASE_URL, en mi caso yo ya la tenia creada en POSTGRES_URL entonces en prisma/schema.prisma cambiamos la variable de entorno que toma la dirreccion rapida de la BD
