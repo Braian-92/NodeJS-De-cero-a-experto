@@ -126,3 +126,13 @@ npx prisma migrate dev --name init
 
 # llamada de la api con postgres para ingresar un registro
 ![ENVIO POST INSERT](_docu/01.png)
+
+# EJEMPLOS DE USO API
+
+//! IMPORTANTE el id no se envia por el urlencoded sino por los parametros de la link api/todos/{ID}
+
+{get}localhost:3000/api/todos/ -- trae todo
+{get}localhost:3000/api/todos/1 -- trae el de id 1
+{post}localhost:3000/api/todos/ -- inserta x-www-form-urlencoded enviar la clave text: '{String}'
+{put}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar text: '{String}' || completeAt '{Date}' para cambiar los valores
+{delete}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar la clave id: '{Int}' para eliminar el row
