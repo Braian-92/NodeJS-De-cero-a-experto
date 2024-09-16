@@ -108,3 +108,18 @@ npm install prisma --save-dev
 npx prisma init --datasource-provider postgresql
 
 ## despues de este comando se puede visualizar la creación de la carpeta prisma en el directorio y ademas una nueva variable de entorno en el .env llamada DATABASE_URL, en mi caso yo ya la tenia creada en POSTGRES_URL entonces en prisma/schema.prisma cambiamos la variable de entorno que toma la dirreccion rapida de la BD
+
+## este comando inferior no lo usaremos pero es el que trae el modelo directamente de la BD
+<!-- npx prisma db pull -->
+en nuestro caso crearemos los modelos en el 07-RESTWeb\prisma\schema.prisma manualmente
+
+en nuestro caso el modelo es este
+
+model todo {
+  id Int @id @default(autoincrement())
+  text String @db.VarChar
+  completeAt DateTime? @db.Timestamp()
+}
+
+## y para migrar el modelo a la bd utilizar el siguiente comando
+npx prisma migrate dev --name init
