@@ -29,13 +29,13 @@ export class UpdateTodoDto {
     let newCompleteAt = completeAt;
     
     if( !id || isNaN( Number(id) ) ){
-      return [`id: ${id} - must be a valid number`]
+      return [`id: '${id}' - must be a valid number`]
     }
 
     if ( completeAt ) {
       newCompleteAt = new Date( completeAt );
       if( newCompleteAt.toString() == 'Invalid Date' ){
-        return ['CompleteAt must be a valid date'];
+        return [`CompleteAt: '${completeAt}' must be a valid date`];
       }
     }
     
