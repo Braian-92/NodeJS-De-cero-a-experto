@@ -123,3 +123,6 @@ model todo {
 
 ## y para migrar el modelo a la bd utilizar el siguiente comando
 npx prisma migrate dev --name init
+
+# llamada de la api con postgres para ingresar un registro
+![ENVIO POST INSERT](_docu/01.png)

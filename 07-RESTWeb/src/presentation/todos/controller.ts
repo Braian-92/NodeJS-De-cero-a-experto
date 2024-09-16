@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { prisma } from '../../data/postgres';
 
 const todos = [
   { id: 1, text: 'milk', completeAt: new Date() },
@@ -28,20 +29,19 @@ export class TodosController {
   };
 
   //! POST
-  public createTodo = (req:Request, res:Response) => {
+  public createTodo = async(req:Request, res:Response) => {
     const { text } = req.body;
 
     if( !text ) return res.status(404).json({ error: `Text property is required`});
 
-    const newTodo = {
-      id: todos.length + 1,
-      text: text,
-      completeAt: null
-    };
 
-    todos.push(newTodo)
-
-    res.json(newTodo)
+    const todo = await prisma.todo.create({
+      data: {
+        text
+      }
+    })
+    
+    res.json(todo)
   };
 
   //! PUT
