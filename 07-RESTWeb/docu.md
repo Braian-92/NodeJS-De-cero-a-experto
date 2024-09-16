@@ -136,3 +136,9 @@ npx prisma migrate dev --name init
 {post}localhost:3000/api/todos/ -- inserta x-www-form-urlencoded enviar la clave text: '{String}'
 {put}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar text: '{String}' || completeAt '{Date}' para cambiar los valores
 {delete}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar la clave id: '{Int}' para eliminar el row
+
+# sitio para generar BDs gratis online
+[neon.tech](https://neon.tech/)
+
+# como tambien el sitio que utilizamos anteriormente
+https://railway.app/
