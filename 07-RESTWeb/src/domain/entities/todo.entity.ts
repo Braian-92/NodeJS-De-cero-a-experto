@@ -14,7 +14,7 @@ export class TodoEntity {
     return !!this.coompleteAt;
   }
 
-  public static fromObject(object: {[key: string]: any} ){
+  public static fromObject(object: {[key: string]: any} ): TodoEntity{
     const { id, text, completeAt } = object;
     if( !id ) throw 'Id is required';
     if( !text ) throw 'Text is required';
@@ -27,7 +27,7 @@ export class TodoEntity {
       }
     }
 
-    new TodoEntity(id, text, completeAt)
+    return new TodoEntity(id, text, completeAt)
     
   }
 }
