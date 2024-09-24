@@ -134,8 +134,10 @@ npx prisma migrate dev --name init
 {get}localhost:3000/api/todos/ -- trae todo
 {get}localhost:3000/api/todos/1 -- trae el de id 1
 {post}localhost:3000/api/todos/ -- inserta x-www-form-urlencoded enviar la clave text: '{String}'
-{put}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar text: '{String}' || completeAt '{Date}' para cambiar los valores
-{delete}localhost:3000/api/todos/1 -- inserta x-www-form-urlencoded enviar la clave id: '{Int}' para eliminar el row
+{put}localhost:3000/api/todos/1 -- updatea x-www-form-urlencoded enviar text: '{String}' || completeAt '{Date}' para cambiar los valores
+{delete}localhost:3000/api/todos/1 -- borra x-www-form-urlencoded enviar la clave id: '{Int}' para eliminar el row
+
+la forma estandar para utilizar put es un update total del elemento en el caso de que sea parcial se tendria que usar patch
 
 # sitio para generar BDs gratis online
 [neon.tech](https://neon.tech/)
