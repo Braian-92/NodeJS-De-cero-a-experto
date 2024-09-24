@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import { TodosController } from './controller';
+import { TodoDatasourceImp } from '../../infraestructure/datasource/todo.datasource.imp';
+import { TodoRepositoryImp } from '../../infraestructure/repositories/todo.repository.imp';
 
 
 
@@ -10,7 +12,11 @@ export class TodoRoutes {
 
     const router = Router();
 
-    const todoController = new TodosController();
+    //! si queremos cambiar el datasurce cambiar la linea de abajo
+    const datasource = new TodoDatasourceImp();
+
+    const todoRepository = new TodoRepositoryImp(datasource);
+    const todoController = new TodosController(todoRepository);
 
     // router.get('/', (req, res) => todoController.getTodos(req, res) );
     //! Método corto: cuando los parámetros de la función son los mismos que se van a enviar al callback, se pueden obviar ambos.

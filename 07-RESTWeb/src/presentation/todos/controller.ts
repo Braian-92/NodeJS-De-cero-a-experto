@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../data/postgres';
 import { CreateTodoDto, UpdateTodoDto } from '../../domain/dtos/';
+import { TodoRepository } from '../../domain';
 
 // const todos = [
 //   { id: 1, text: 'milk', completeAt: new Date() },
@@ -10,12 +11,14 @@ import { CreateTodoDto, UpdateTodoDto } from '../../domain/dtos/';
 
 export class TodosController {
   //! DI (dependency injection)
-  constructor(){}
+  constructor(
+    private readonly todoRepository: TodoRepository,
+  ){}
 
 
   public getTodos = async(req:Request, res:Response) => {
-    const todos = await prisma.todo.findMany();
-    return res.json(todos)
+    const todos = await this.todoRepository.getAll();
+    return res.json(todos);
   }
 
   //! ejemplo de utilización localhost:3000/api/todos/2 GET
@@ -24,14 +27,13 @@ export class TodosController {
     const id = +req.params.id;
     if(isNaN(id)) return res.status(404).json({ error: `ID argument is not a number`})
 
-    const todo = await prisma.todo.findFirst({
-      where: { id } //! equivalencia de id: id
-    });
-    // const todo = todos.find( todo => todo.id === id );
+    try {
+      const todo = await this.todoRepository.findById(id);
+      res.json(todo);
+    } catch (error) {
+      res.json({error})
+    }
     
-    ( todo )
-      ? res.json( todo )
-      : res.status(404).json({ error: `Todo with id ${id} not found`})
   };
 
   //! POST
