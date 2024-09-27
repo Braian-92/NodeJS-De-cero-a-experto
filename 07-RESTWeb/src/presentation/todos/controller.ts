@@ -46,25 +46,27 @@ export class TodosController {
   //! PUT
   public updateTodo = (req:Request, res:Response) => {
     const id = +req.params.id;
-    const [error, updateTodoDto] = UpdateTodoDto.create({
-      ...req.body,
-      id
-    })
-    if( error ) return res.status( 400 ).json({ error });
+    const [ error, updateTodoDto ] = UpdateTodoDto.create( { ...req.body, id } );
+    if ( error ) return res.status( 400 ).json( { error } );
 
-   new UpdateTodo(this.todoRepository)
+    new UpdateTodo( this.todoRepository )
     .execute( updateTodoDto! )
-    .then(res.json )
-    .catch( error => res.status(400).json({error}) );
+      .then( todo => res.json( todo ) )
+      .catch( error => res.status( 400 ).json( { error } ) );
 
-  }
+  };
 
-  public deleteTodo = (req:Request, res:Response) => {
-    const id = +req.params.id; 
-    new DeleteTodo(this.todoRepository)
+
+  public deleteTodo = ( req: Request, res: Response ) => {
+    const id = +req.params.id;
+
+    new DeleteTodo( this.todoRepository )
       .execute( id )
-      .then(res.json )
-      .catch( error => res.status(400).json({error}) );
-  }
+      .then( todo => res.json( todo ) )
+      .catch( error => res.status( 400 ).json( { error } ) );
+
+  };
+
+
 
 }
