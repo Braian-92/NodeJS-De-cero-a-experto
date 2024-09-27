@@ -235,11 +235,6 @@ al final lo dejamos de la siguiente manera para que funcione
 }
 ################################################################
 
+ejecutar el este 
+npm run test:watch
 
-por algun motivo no me tomaba el autocompletado de jest
-
-se soluciono
-1 reiniciando el editor
-2 npm i --save-dev @types/jest
-
-no tengo bien en claro cual fue

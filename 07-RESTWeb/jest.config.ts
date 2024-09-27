@@ -9,7 +9,7 @@ const config: Config = {
   setupFiles: [
     "<rootDir>/setupTests.ts"
   ],
-  testEnvironment: "jest-environment-node",
+  testEnvironment: "jest-environment-node"
 };
 
 export default config;
