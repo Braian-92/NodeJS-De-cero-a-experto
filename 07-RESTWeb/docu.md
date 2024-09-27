@@ -211,27 +211,35 @@ agregar en el siguiente archivo
 ],
 ########
 
-quedando el archivo de la siguiente manera
+al final lo dejamos de la siguiente manera para que funcione
 ################################################################
 {
   "exclude": [
     "node_modules",
-    "dist",
-    "src/**/*.test.ts",
+    "dist"
   ],
   "include": [
     "src/**/*.ts",
   ],
   "compilerOptions": {
-    "target": "es2016",            
+    "target": "es2016",
     "module": "commonjs",
     "rootDir": "src",
     "outDir": "dist/",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "skipLibCheck": true
   }
 }
+
 ################################################################
 
 
+por algun motivo no me tomaba el autocompletado de jest
+
+se soluciono
+1 reiniciando el editor
+2 npm i --save-dev @types/jest
+
+no tengo bien en claro cual fue
