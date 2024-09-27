@@ -220,6 +220,7 @@ al final lo dejamos de la siguiente manera para que funcione
   ],
   "include": [
     "src/**/*.ts",
+    "tests/**/*.ts" -- con esto funciona el test del root
   ],
   "compilerOptions": {
     "target": "es2016",
@@ -232,7 +233,6 @@ al final lo dejamos de la siguiente manera para que funcione
     "skipLibCheck": true
   }
 }
-
 ################################################################
 
 
