@@ -14,7 +14,7 @@ export class GetTodos implements GetTodosUseCase {
   ){}
 
   execute(): Promise<TodoEntity[]> {
-    console.log('ingreso');
+    // console.log('ingreso');
     return this.repository.getAll();
   }
 

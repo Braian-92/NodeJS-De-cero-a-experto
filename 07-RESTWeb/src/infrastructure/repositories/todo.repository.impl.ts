@@ -13,8 +13,8 @@ export class TodoRepositoryImpl implements TodoRepository {
   }
 
   getAll(): Promise<TodoEntity[]> {
-    console.log('ingreso A');
-    console.log('mensaje test', this.datasource.getAll());
+    // console.log('ingreso A');
+    // console.log('mensaje test', this.datasource.getAll());
     return this.datasource.getAll();
   }
 

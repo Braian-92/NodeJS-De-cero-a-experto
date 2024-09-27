@@ -15,12 +15,12 @@ export class TodoDatasourceImpl implements TodoDatasource {
   }
 
   async getAll(): Promise<TodoEntity[]> {
-    console.log('getAll')
+    // console.log('getAll')
     const todos = await prisma.todo.findMany();
     // console.log(todos);
-    console.log(
-      todos.map( TodoEntity.fromObject )
-    );
+    // console.log(
+    //   todos.map( TodoEntity.fromObject )
+    // );
     // return todos.map( todo => TodoEntity.fromObject(todo) );
     //! metodo corto cuando el parameto es el mismo que se envia a la funcion se puede compactar
     return todos.map( TodoEntity.fromObject );

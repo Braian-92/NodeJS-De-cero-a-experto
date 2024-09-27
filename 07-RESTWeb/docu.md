@@ -238,3 +238,12 @@ al final lo dejamos de la siguiente manera para que funcione
 ejecutar el este 
 npm run test:watch
 
+########### INSTALAR TIPADO ESTRICTO DE SUPERTEST #######
+npm i --save-dev @types/supertest
+
+
+#### instalar dotenv-cli #### inyector de variables de entorno en scripts
+
+https://www.npmjs.com/package/dotenv-cli
+
+npm i -D dotenv-cli (-D es dependencia dev)
