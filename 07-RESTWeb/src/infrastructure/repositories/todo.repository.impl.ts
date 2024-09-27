@@ -2,7 +2,7 @@ import { CreateTodoDto, TodoDatasource, TodoEntity, TodoRepository, UpdateTodoDt
 
 
 
-export class TodoRepositoryImp implements TodoRepository {
+export class TodoRepositoryImpl implements TodoRepository {
 
   constructor(
     private readonly datasource: TodoDatasource,
@@ -13,6 +13,8 @@ export class TodoRepositoryImp implements TodoRepository {
   }
 
   getAll(): Promise<TodoEntity[]> {
+    console.log('ingreso A');
+    console.log('mensaje test', this.datasource.getAll());
     return this.datasource.getAll();
   }
 

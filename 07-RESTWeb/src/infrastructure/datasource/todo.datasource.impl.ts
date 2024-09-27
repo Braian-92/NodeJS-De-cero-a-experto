@@ -3,7 +3,7 @@ import { CreateTodoDto, TodoDatasource, TodoEntity, UpdateTodoDto } from "../../
 
 
 
-export class TodoDatasourceImp implements TodoDatasource {
+export class TodoDatasourceImpl implements TodoDatasource {
 
   async create(createTodoDto: CreateTodoDto): Promise<TodoEntity> {
     const todo = await prisma.todo.create({
@@ -15,10 +15,16 @@ export class TodoDatasourceImp implements TodoDatasource {
   }
 
   async getAll(): Promise<TodoEntity[]> {
+    console.log('getAll')
     const todos = await prisma.todo.findMany();
+    // console.log(todos);
+    console.log(
+      todos.map( TodoEntity.fromObject )
+    );
     // return todos.map( todo => TodoEntity.fromObject(todo) );
     //! metodo corto cuando el parameto es el mismo que se envia a la funcion se puede compactar
     return todos.map( TodoEntity.fromObject );
+    
   }
   
   async findById(id: number): Promise<TodoEntity> {
