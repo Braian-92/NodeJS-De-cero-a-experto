@@ -144,3 +144,94 @@ la forma estandar para utilizar put es un update total del elemento en el caso d
 
 # como tambien el sitio que utilizamos anteriormente
 https://railway.app/
+
+############################### testing ###############################
+############################### testing ###############################
+############################### testing ###############################
+
+docu: https://gist.github.com/Klerith/98d7b1bc0f1525e892f260813cad1007
+
+npm install -D jest @types/jest ts-jest supertest
+
+npx jest --init
+
+seleccionar(y, y node y v8)
+
+agregar esta lineas en el archivo
+"07-RESTWeb\jest.config.ts"
+
+######## agregar al archivo
+preset: 'ts-jest',
+testEnvironment: "jest-environment-node",
+
+setupFiles: [
+  "<rootDir>/setupTests.ts"
+],
+########
+
+quedando de esta manera
+
+################################################################
+import type {Config} from 'jest';
+
+const config: Config = {
+  clearMocks: true,
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageProvider: "v8",
+  preset: 'ts-jest',
+  setupFiles: [
+    "<rootDir>/setupTests.ts"
+  ],
+  testEnvironment: "jest-environment-node",
+};
+
+export default config;
+################################################################
+
+
+pegar en el archivo, los comandos de node
+07-RESTWeb\package.json
+
+######## agregar al archivo
+"test": "jest",
+"test:watch": "jest --watch",
+"test:coverage": "jest --coverage",
+########
+
+
+agregar en el siguiente archivo
+"07-RESTWeb\tsconfig.json"
+
+######## agregar al archivo
+"exclude": [
+  "node_modules",
+  "dist",
+  "src/**/*.test.ts",
+],
+########
+
+quedando el archivo de la siguiente manera
+################################################################
+{
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/*.test.ts",
+  ],
+  "include": [
+    "src/**/*.ts",
+  ],
+  "compilerOptions": {
+    "target": "es2016",            
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist/",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
+################################################################
+
+
