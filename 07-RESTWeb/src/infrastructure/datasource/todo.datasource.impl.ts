@@ -44,7 +44,7 @@ export class TodoDatasourceImpl implements TodoDatasource {
       data: updateTodoDto!.values
     });
 
-    return TodoEntity.fromObject(updateTodoDto);
+    return TodoEntity.fromObject(updatedTodo);
   }
 
   async deleteById(id: number): Promise<TodoEntity> {

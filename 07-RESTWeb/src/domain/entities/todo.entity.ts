@@ -17,7 +17,7 @@ export class TodoEntity {
   public static fromObject(object: {[key: string]: any} ): TodoEntity{
     const { id, text, completeAt } = object;
     if( !id ) throw 'Id is required';
-    if( !text ) throw 'Text is required';
+    // if( !text ) throw 'Text is required';
 
     let newCompleteAt;
     if( completeAt ) {
