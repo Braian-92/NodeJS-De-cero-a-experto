@@ -17,7 +17,7 @@ export class CreateTodoDto {
 
     // if( !text ) return ['Text property is required', undefined];
     //! metodo corto ya que el segundo parametro al no enviarlo es undefined
-    if( !text ) return ['Text property is required'];
+    if( !text || text.length === 0 ) return ['Text property is required'];
 
     return [undefined, new CreateTodoDto(text)];
   }

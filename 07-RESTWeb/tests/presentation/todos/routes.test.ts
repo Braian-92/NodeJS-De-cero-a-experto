@@ -65,5 +65,49 @@ describe('Todo route testing', () => {
 
   })
 
+  test('should return a 404 FotFound api/todos/:id', async () => {
+    const todoId = 999;
+    const { body } = await request( testServer.app )
+      .get(`/api/todos/${todoId}`)
+      .expect(400);
+    
+
+    console.log(body);
+
+    expect(body).toEqual({ error: `Todo with id ${todoId} not found` })
+
+  
+  })
+
+
+  test('should return a new Todo api/todos', async () => {
+
+    const { body } = await request( testServer.app )
+      .post('/api/todos')
+      .send( todo1 )
+      .expect(201);
+
+    expect(body).toEqual({
+      id: expect.any(Number),
+      text: todo1.text,
+      completeAt: null,
+    })
+
+  })
+
+  test('should return an error if text is not value api/todos', async () => {
+
+    const { body } = await request( testServer.app )
+      .post('/api/todos')
+      .send( {} )
+      .expect(400);
+
+    console.log(body);
+    expect(body).toEqual({
+      "error": "Text property is required"
+    })
+
+  })
+
 
 })
