@@ -6,12 +6,12 @@ export class TodoEntity {
   constructor(
     public id: number,
     public text: string,
-    public coompleteAt?: Date|null
+    public completeAt?: Date|null
   ){}
 
   get isCompleted() {
     // doble negación si tiene un valor es true
-    return !!this.coompleteAt;
+    return !!this.completeAt;
   }
 
   public static fromObject(object: {[key: string]: any} ): TodoEntity{

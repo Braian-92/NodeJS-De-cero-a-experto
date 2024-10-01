@@ -247,3 +247,8 @@ npm i --save-dev @types/supertest
 https://www.npmjs.com/package/dotenv-cli
 
 npm i -D dotenv-cli (-D es dependencia dev)
+
+
+#### inyectar variable de entorno para inicializar pisma en bd secundaria
+
+https://www.prisma.io/docs/orm/more/development-environment/environment-variables/using-multiple-env-files
