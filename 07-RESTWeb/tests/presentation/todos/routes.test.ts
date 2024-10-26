@@ -69,7 +69,7 @@ describe('Todo route testing', () => {
     const todoId = 999;
     const { body } = await request( testServer.app )
       .get(`/api/todos/${todoId}`)
-      .expect(400);
+      .expect(404);
     
 
     // console.log(body);
@@ -134,7 +134,7 @@ describe('Todo route testing', () => {
     const { body } = await request( testServer.app )
       .put(`/api/todos/${todoId}`)
       .send( { text: 'Hola Mundo Update', completeAt: '2024-09-30' } )
-      .expect(400);
+      .expect(404);
     
 
     console.log('ricibio 01', body);
@@ -190,18 +190,13 @@ describe('Todo route testing', () => {
       data: todo1
     })
 
-
     const { body } = await request(testServer.app)
       .delete(`/api/todos/9999`)
-      .expect(400)
+      .expect(404)
 
-    // console.log('body 02', {body});
+    console.log('body 02', {body});
 
-    // expect( body ).toEqual({ 
-    //   id: expect.any(Number), 
-    //   text: todo.text, 
-    //   completeAt: null
-    // })
+    expect( body ).toEqual({ error: 'Todo with id 9999 not found' })
 
   })
-})
+}) 
