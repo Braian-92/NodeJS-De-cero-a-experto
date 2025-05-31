@@ -20,7 +20,7 @@ export class AuthController {
     // return res.json(registerDto);
     this.authService.registerUser(registerDto!)
       .then(user => res.json(user))
-      .catch(error => res.status(400).json({ error }))
+      // .catch(error => res.status(400).json({ error }))
   }
 
   loginUser = (req: Request, res: Response) => {
