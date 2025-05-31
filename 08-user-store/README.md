@@ -26,3 +26,4 @@ npm install mongoose
 https://www.mongodb.com/try/download/compass
 
 DDD "domain" = reglas de negocio
+DDD "dto" = data transfer object
