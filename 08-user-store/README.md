@@ -12,3 +12,6 @@ Cada paso de su configuración ya se ha realizado previamente en el curso, por l
 3. En caso de necesitar base de datos, configurar el docker-compose.yml y ejecutar `docker-compose up -d` para levantar los servicios deseados.
 4. Ejecutar `npm run dev` para levantar el proyecto en modo desarrollo
 
+---------------
+-- POSTMAN --
+(POST) localhost:3000/api/auth/login => 'loginUser'
