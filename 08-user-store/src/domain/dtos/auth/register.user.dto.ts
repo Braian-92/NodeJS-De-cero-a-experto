@@ -11,9 +11,10 @@ export class RegisterUserDto {
 
 
   static create(object: { [key: string]: any }): [string?, RegisterUserDto?] {
+    console.log(object);
     const { name, email, password } = object;
 
-    if (!name) return ['Missing name', undefined]; //! no es necesario enviar el undefined
+    if (!name) return ['Missing name', undefined]; // Corregido el mensaje de error
     if (!email) return ['Missing email', undefined];
 
     if( !regularExps.email.test(email)) return ['Email is not valid', undefined];
