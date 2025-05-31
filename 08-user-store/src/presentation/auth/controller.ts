@@ -10,14 +10,7 @@ export class AuthController {
 
 
   registerUser = (req: Request, res: Response) => {
-    // Obtener datos del body o de query params si están disponibles
-    const data = {
-      ...req.body,
-      ...req.query
-    };
-    
-    console.log('Data received:', data);
-    const [error, registerDto] = RegisterUserDto.create(data);
+    const [error, registerDto] = RegisterUserDto.create(req.body);
     
     if (error) return res.status(400).json({ error });
     

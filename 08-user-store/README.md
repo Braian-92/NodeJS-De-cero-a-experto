@@ -27,3 +27,13 @@ https://www.mongodb.com/try/download/compass
 
 DDD "domain" = reglas de negocio
 DDD "dto" = data transfer object
+
+# como enviar datos por POST a register
+
+(POST) localhost:3000/api/auth/register
+
+body -> x-www-form-urlencoded -> {
+  name: "John Doe",
+  email: ": "a@a.a",
+  password: "123456"
+}
