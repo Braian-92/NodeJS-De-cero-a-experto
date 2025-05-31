@@ -24,3 +24,5 @@ npm install mongoose
 
 -- app
 https://www.mongodb.com/try/download/compass
+
+DDD "domain" = reglas de negocio
