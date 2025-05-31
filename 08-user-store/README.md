@@ -14,4 +14,13 @@ Cada paso de su configuración ya se ha realizado previamente en el curso, por l
 
 ---------------
 -- POSTMAN --
-(POST) localhost:3000/api/auth/login => 'loginUser'
+(POST) localhost:3000/api/auth/login    => 'loginUser'
+(POST) localhost:3000/api/auth/register => 'registerUser'
+(GET) localhost:3000/api/auth/validate-email/ABC => 'validateEmail'
+
+
+-- 
+npm install mongoose
+
+-- app
+https://www.mongodb.com/try/download/compass
