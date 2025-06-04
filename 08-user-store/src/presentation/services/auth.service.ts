@@ -1,3 +1,4 @@
+import { Response } from 'express';
 import { UserModel } from "../../data";
 import { CustomError, RegisterUserDto } from "../../domain";
 
@@ -11,7 +12,7 @@ export class AuthService {
 
   public async registerUser (registerUserDto: RegisterUserDto ) {
     const existUser = await UserModel.findOne({ email: registerUserDto.email });
-    if (existUser) return CustomError.badRequest('User already exists');
+    if (existUser) throw CustomError.badRequest('User already exists');
 
     // return 'todo ok!';
     try {
