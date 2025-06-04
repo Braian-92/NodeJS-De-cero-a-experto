@@ -49,3 +49,13 @@ npm i bcryptjs
 name = braia2
 email = braian2@braian.braia
 password = braia12312
+
+
+# QUE ES JWT : Json web token
+
+-- GENERADOR DE JWT
+https://www.npmjs.com/package/jsonwebtoken
+
+npm i jsonwebtoken
+
+npm i @types/jsonwebtoken
