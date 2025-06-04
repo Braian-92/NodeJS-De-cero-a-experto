@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import { UserModel } from "../../data";
-import { CustomError, RegisterUserDto, UserEntity } from "../../domain";
+import { CustomError, LoginUserDto, RegisterUserDto, UserEntity } from "../../domain";
 import { bcryptAdapter } from '../../config';
 
 
@@ -36,5 +36,21 @@ export class AuthService {
       throw CustomError.internalServer(`${ error }`);
     }
 
+  }
+
+  public async loginUser ( loginUserDto: LoginUserDto ) {
+    const user = await UserModel.findOne({ email: loginUserDto.email });
+    if (!user) throw CustomError.badRequest('Email not exists');
+
+    const isMatching = bcryptAdapter.compare(loginUserDto.password, user.password);
+
+    if(!isMatching) throw CustomError.badRequest('Password not valid');
+
+    const { password, ...userEntity } = UserEntity.fromObject(user);
+
+    return {
+      user: userEntity,
+      token: 'ABC',
+    };
   }
 }

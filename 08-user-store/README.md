@@ -43,3 +43,9 @@ body -> x-www-form-urlencoded -> {
 https://www.npmjs.com/package/bcryptjs
 
 npm i bcryptjs
+
+# ejemplo usuario registrado
+
+name = braia2
+email = braian2@braian.braia
+password = braia12312
