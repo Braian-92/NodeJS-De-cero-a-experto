@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import { UserModel } from "../../data";
-import { CustomError, RegisterUserDto } from "../../domain";
+import { CustomError, RegisterUserDto, UserEntity } from "../../domain";
 
 
 
@@ -14,11 +14,20 @@ export class AuthService {
     const existUser = await UserModel.findOne({ email: registerUserDto.email });
     if (existUser) throw CustomError.badRequest('User already exists');
 
-    // return 'todo ok!';
     try {
       const user = await UserModel.create(registerUserDto);
       await user.save();
-      return user;
+
+      //! encriptar contraseña
+      //! JWT <-- para mantener la session del usuario
+      //! email de confirmacion
+
+      const { password, ...userEntity } = UserEntity.fromObject(user);
+      return {
+        user: userEntity,
+        token: 'ABC',
+      };
+      
     } catch (error) {
       throw CustomError.internalServer(`${ error }`);
     }
