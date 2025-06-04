@@ -1,6 +1,7 @@
 import { Response } from 'express';
 import { UserModel } from "../../data";
 import { CustomError, RegisterUserDto, UserEntity } from "../../domain";
+import { bcryptAdapter } from '../../config';
 
 
 
@@ -16,6 +17,9 @@ export class AuthService {
 
     try {
       const user = await UserModel.create(registerUserDto);
+
+      user.password = bcryptAdapter.hash(registerUserDto.password);
+
       await user.save();
 
       //! encriptar contraseña

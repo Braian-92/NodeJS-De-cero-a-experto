@@ -37,3 +37,9 @@ body -> x-www-form-urlencoded -> {
   email: ": "a@a.a",
   password: "123456"
 }
+
+
+# Hashear contraseñas
+https://www.npmjs.com/package/bcryptjs
+
+npm i bcryptjs
