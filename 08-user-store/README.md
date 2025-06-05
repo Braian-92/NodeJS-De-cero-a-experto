@@ -77,3 +77,40 @@ https://myaccount.google.com/security
 
 # crear tokens para apps externas
 https://myaccount.google.com/u/0/apppasswords
+
+
+# publicar puertos locales en internet
+
+https://ngrok.com/
+(registrarse, validarse {revisar los autenticadores que tengas en el celular})
+
+https://dashboard.ngrok.com/get-started/setup/windows
+
+nos dara un exce dejarlo en el siguiente directorio
+C:\development\ngrok
+
+luego en windows (presionar inicio) poner "env" (editar variables de entorno aparecera)
+
+--> variables de entorno
+  --> editar el item PATH
+  y pegar un item mas "C:\development\ngrok"
+
+
+# abrir terminar para verigicar que ngrok esta funcionando
+
+ngrok --version
+
+# activar servicio
+https://dashboard.ngrok.com/get-started/setup/windows
+en el sitio donde lo descargamos aparece un comando para activar el servicio
+
+"ngrok config add-authtoken 2S2Gjabcdópkhasdopjhasfokhasdo´khjasdoíhj" (codigo ejemplo), ejecutar en terminal
+
+para activar el sevicio en la nube ejecutar el siguiente comando
+
+ngrok http 3000
+
+# esto nos dara una url para acceder a nuestro proyecto en internet
+
+https://aip-jha-spi-jhas.ngrok-free.app/ (link ejemplo)
+
