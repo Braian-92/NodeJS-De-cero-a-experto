@@ -59,3 +59,21 @@ https://www.npmjs.com/package/jsonwebtoken
 npm i jsonwebtoken
 
 npm i @types/jsonwebtoken
+
+# Visualizador de JWT
+
+https://jwt.io/
+
+
+# MAILER
+
+npm i nodemailer
+
+npm i @types/nodemailer
+
+
+# activar seguridad de doble factor de gmail
+https://myaccount.google.com/security
+
+# crear tokens para apps externas
+https://myaccount.google.com/u/0/apppasswords
