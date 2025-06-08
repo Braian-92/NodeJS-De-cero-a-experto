@@ -31,7 +31,9 @@ export class CategoryController {
   }
 
   getCategory = (req: Request, res: Response) => {
-    res.json('Categories get');
+    this.categoryService.getCategories()
+      .then( categories => res.json( categories ))
+      .catch( error => this.handleError( error, res ));
   }
 
 }
