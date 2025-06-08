@@ -114,3 +114,24 @@ ngrok http 3000
 
 https://aip-jha-spi-jhas.ngrok-free.app/ (link ejemplo)
 
+
+# Colocar Token para categorias (se saca del login)
+
+![Token Postman Categorias](_README_FILES/tockenPostmanCategorias.png)
+
+
+# EJEMPLO GENERICOS
+
+Los genéricos en TypeScript, denotados por <T>, permiten escribir código reutilizable que puede trabajar con múltiples tipos de datos. En este ejemplo, <T> representa el tipo de dato que se espera recibir al decodificar el token JWT, permitiendo flexibilidad y type-safety al mismo tiempo.
+
+static validateToken<T>( token: string ): Promise<T | null> {
+  return new Promise((resolve) => {
+    jwt.verify(token, JWT_SEED, (err, decoded) => {
+      if(err) return resolve(false);
+
+      resolve(decoded as T);
+    });
+  })
+}
+
+const payload = await JwtAdapter.validateToken<{ id: string }>( token );
