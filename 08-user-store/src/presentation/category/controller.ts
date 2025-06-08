@@ -1,12 +1,15 @@
 import { Response, Request } from "express"
 import { CreateCategoryDto, CustomError } from "../../domain"
+import { CategoryService } from "../services/category.service";
 
 
 
 
 export class CategoryController {
   // DI
-  constructor () {}
+  constructor (
+    private readonly categoryService: CategoryService
+  ) {}
 
   private handleError = (error: unknown, res: Response) => {
     if (error instanceof CustomError) {
@@ -20,7 +23,11 @@ export class CategoryController {
     const [error, createCategoryDto] = CreateCategoryDto.create( req.body );
     if( error ) return res.status(400).json({ error });
 
-    res.json(createCategoryDto);
+    this.categoryService.createCategory( createCategoryDto!, req.body.user )
+      // .then( res.status(201).json ) //! metodo equivalente
+      .then( category => res.status(201).json( category ))
+      .catch( error => this.handleError( error, res ));
+
   }
 
   getCategory = (req: Request, res: Response) => {
