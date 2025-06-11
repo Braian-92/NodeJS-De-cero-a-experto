@@ -20,7 +20,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "braian2@braian.braia",
+							"value": "zamudiobraianhernan@gmail.com",
 							"type": "text"
 						},
 						{
@@ -92,10 +92,33 @@
 			"name": "localhost:3000/api/categories",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDI0M2EzOWI2MzY2ZGE1YTVjMDViMyIsImlhdCI6MTc0OTM0Nzc2NiwiZXhwIjoxNzQ5MzU0OTY2fQ.82rcNr40zX7FdPNGo4FdVqcDxzCCDS44hUKQ1FpK2ig",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "chocolate 21",
+							"type": "text"
+						},
+						{
+							"key": "available",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
 				"url": {
 					"raw": "localhost:3000/api/categories",
 					"host": [
@@ -112,11 +135,18 @@
 		},
 		{
 			"name": "localhost:3000/api/categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
 				"url": {
-					"raw": "localhost:3000/api/categories",
+					"raw": "localhost:3000/api/categories?page=1&limit=4",
 					"host": [
 						"localhost"
 					],
@@ -124,6 +154,16 @@
 					"path": [
 						"api",
 						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
 					]
 				}
 			},
@@ -146,7 +186,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"hot Chocolate\",\r\n    \"categoty\": \"6844fa3da2ae8085ec027ccb\"\r\n}\r\n",
+					"raw": "{\r\n    \"name\": \"hot Chocolate7\",\r\n    \"category\": \"6844fa3da2ae8085ec027ccb\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -163,6 +203,77 @@
 						"api",
 						"products",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/products?page=2&limit=4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/products?page=2&limit=4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/upload/single/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/upload/single/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload",
+						"single",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/upload/multiple/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/upload/multiple/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload",
+						"multiple",
+						"users"
 					]
 				}
 			},
