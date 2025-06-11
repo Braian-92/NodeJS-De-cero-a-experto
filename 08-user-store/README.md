@@ -136,3 +136,15 @@ static validateToken<T>( token: string ): Promise<T | null> {
 }
 
 const payload = await JwtAdapter.validateToken<{ id: string }>( token );
+
+
+
+# subir archivos con express
+https://www.npmjs.com/package/express-fileupload
+npm i express-fileupload
+## definiciones ts
+npm i --save-dev @types/express-fileupload
+
+# generar ids unicos
+https://www.npmjs.com/package/uuid
+npm i uuid
