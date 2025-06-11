@@ -148,3 +148,7 @@ npm i --save-dev @types/express-fileupload
 # generar ids unicos
 https://www.npmjs.com/package/uuid
 npm i uuid
+
+
+## INFO MIDDLEWARE
+no es mas que solo una funcion que recibe la reques la response y la funcion next
