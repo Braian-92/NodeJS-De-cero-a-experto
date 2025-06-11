@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "588ffbe8-3980-408c-8996-4b0ca09b331b",
+		"name": "08-user-store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16284468",
+		"_collection_link": "https://afip11.postman.co/workspace/AFIP-Workspace~4e29fc6e-cf65-45ff-8842-33f3d5d27ff8/collection/16284468-588ffbe8-3980-408c-8996-4b0ca09b331b?action=share&source=collection_link&creator=16284468"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/auth/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "braian2@braian.braia",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "braia12312",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/auth/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "braia2",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zamudiobraianhernan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "braia12312",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/categories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/products/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDI0M2EzOWI2MzY2ZGE1YTVjMDViMyIsImlhdCI6MTc0OTUxMzc3OSwiZXhwIjoxNzQ5NTIwOTc5fQ.gfG2lyI4Cbl9rsYGRZMB84ozCMwiGr7yhoaPdb9KF84",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hot Chocolate\",\r\n    \"categoty\": \"6844fa3da2ae8085ec027ccb\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
