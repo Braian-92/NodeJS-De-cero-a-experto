@@ -242,8 +242,25 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/LDM/Pictures/Screenshots/Captura de pantalla 2025-05-07 095140.png",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/LDM/Pictures/Screenshots/Captura de pantalla 2025-05-13 124310.png",
+							"disabled": true
+						}
+					]
+				},
 				"url": {
-					"raw": "localhost:3000/api/upload/single/users",
+					"raw": "localhost:3000/api/upload/single/products",
 					"host": [
 						"localhost"
 					],
@@ -252,7 +269,7 @@
 						"api",
 						"upload",
 						"single",
-						"users"
+						"products"
 					]
 				}
 			},
@@ -263,8 +280,23 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/LDM/Pictures/Screenshots/Captura de pantalla 2025-05-07 095140.png"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/LDM/Pictures/Screenshots/Captura de pantalla 2025-05-07 000439.png"
+						}
+					]
+				},
 				"url": {
-					"raw": "localhost:3000/api/upload/multiple/users",
+					"raw": "localhost:3000/api/upload/multiple/products",
 					"host": [
 						"localhost"
 					],
@@ -273,7 +305,35 @@
 						"api",
 						"upload",
 						"multiple",
-						"users"
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/images/products/b568cbca-3e66-4872-84df-c47c6857e86a.png",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/images/products/b568cbca-3e66-4872-84df-c47c6857e86a.png",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"images",
+						"products",
+						"b568cbca-3e66-4872-84df-c47c6857e86a.png"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
