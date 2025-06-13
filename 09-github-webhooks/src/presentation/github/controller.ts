@@ -12,6 +12,7 @@ export class GithubController {
     const payload = req.body;
 
     console.log({githubEvent});
+    console.log(JSON.stringify(payload));
 
     res.status(200).send('Accepted');
   }
