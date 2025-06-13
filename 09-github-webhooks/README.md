@@ -19,3 +19,10 @@ npx tsc --init --outDir dist/ --rootDir src
 
 # EJECUTAR 
 npm run dev
+
+
+npm i express
+npm i --save-dev @types/express
+
+
+npm i dotenv env-var
