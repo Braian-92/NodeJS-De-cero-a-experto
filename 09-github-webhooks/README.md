@@ -26,3 +26,11 @@ npm i --save-dev @types/express
 
 
 npm i dotenv env-var
+
+
+# desplegar local con ngrok
+
+ngrok http 3000
+
+
+https://fe9f-2800-810-4ca-8194-851b-a431-2141-eecb.ngrok-free.app/
