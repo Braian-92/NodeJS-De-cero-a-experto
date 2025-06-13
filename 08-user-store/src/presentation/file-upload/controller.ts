@@ -16,12 +16,11 @@ export class FileUploadController {
     if (error instanceof CustomError) {
       return res.status(error.statusCode).json({ error: error.message });
     }
-    console.log(`${ error }`);
+    console.log('Error en handleError:', error);
     return res.status(500).json({ error: 'Internal server error' });
   }
 
   uploadFile = (req: Request, res: Response) => {
-
     const type = req.params.type;
     const validTypes = ['users', 'products', 'categories'];
 
@@ -30,18 +29,49 @@ export class FileUploadController {
         .json({ error: `Invalid type, valid types: ${ validTypes.join(', ') }` });
     }
 
-    
+    const file = req.files?.files as UploadedFile;
+    if (!file) {
+      return res.status(400).json({ error: 'No file was uploaded' });
+    }
 
-    const file = req.body.files.at(0) as UploadedFile;
+    console.log('Uploading single file:', file.name);
 
     this.fileUploadService.uploadSingle( file, `uploads/${ type }` )
-      .then( uploaded => res.json( uploaded ))
-      .catch( error => this.handleError( error, res ));
-
+      .then( uploaded => {
+        console.log('File uploaded successfully:', uploaded);
+        res.json( uploaded );
+      })
+      .catch( error => {
+        console.log('Error uploading file:', error);
+        this.handleError( error, res );
+      });
   }
 
   uploadMultipleFiles = (req: Request, res: Response) => {
-    res.json('Files multiple uploaded')
+    const type = req.params.type;
+    const validTypes = ['users', 'products', 'categories'];
+
+    if( !validTypes.includes( type )) {
+      return res.status(400)
+        .json({ error: `Invalid type, valid types: ${ validTypes.join(', ') }` });
+    }
+
+    const files = req.files?.files as UploadedFile[];
+    if (!files) {
+      return res.status(400).json({ error: 'No files were uploaded' });
+    }
+
+    console.log('Files to upload:', files.map(f => f.name));
+
+    this.fileUploadService.uploadMultiple( files, `uploads/${ type }` )
+      .then( uploaded => {
+        console.log('Files uploaded successfully:', uploaded);
+        res.json( uploaded );
+      })
+      .catch( error => {
+        console.log('Error uploading files:', error);
+        this.handleError( error, res );
+      });
   }
 
 }

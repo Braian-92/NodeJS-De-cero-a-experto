@@ -24,6 +24,8 @@ export class FileUploadService {
     validExtensions: string[] = ['jpg', 'jpeg', 'png', 'gif', 'webp']
   ) {
     try {
+      console.log('Processing file:', file.name);
+      console.log('File mimetype:', file.mimetype);
 
       const fileExtension = file.mimetype.split('/').at(1) ?? '';
 
@@ -37,21 +39,41 @@ export class FileUploadService {
       this.checkFolder( destination );
 
       const fileName = `${ this.uuid() }.${ fileExtension }`;
+      const filePath = `${ destination }/${ fileName }`;
 
-      file.mv(`${ destination }/${ fileName }`);
+      console.log('Saving file to:', filePath);
+
+      try {
+        await file.mv(filePath);
+        console.log('File saved successfully');
+      } catch (error) {
+        console.error('Error saving file:', error);
+        throw CustomError.internalServer('Error saving file');
+      }
 
       return { fileName };
 
     } catch (error) {
-      console.log(error);
+      console.error('Error in uploadSingle:', error);
       throw error;
     }
   }
 
 
-  uploadMultiple(
-    file: any[],
+  async uploadMultiple(
+    files: UploadedFile[],
     folder: string,
     validExtensions: string[] = ['jpg', 'jpeg', 'png', 'gif', 'webp']
-  ) {}
+  ) {
+    console.log('Starting multiple file upload');
+    console.log('Number of files:', files.length);
+
+    try {
+      const uploadPromises = files.map(file => this.uploadSingle(file, folder, validExtensions));
+      return await Promise.all(uploadPromises);
+    } catch (error) {
+      console.error('Error in uploadMultiple:', error);
+      throw error;
+    }
+  }
 }
