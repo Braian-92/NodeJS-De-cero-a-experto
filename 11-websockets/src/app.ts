@@ -14,9 +14,13 @@ wss.on('connection', function connection(ws) {
 
   ws.send('Hola desde el servidor');
 
-  setInterval(() => {
-    ws.send('Hola nuevamente desde el servidor');
-  }, 2000);
+  // setInterval(() => {
+  //   ws.send('Hola nuevamente desde el servidor');
+  // }, 2000);
+
+  ws.on('close', () => {
+    console.log('client disconnected');
+  });
 });
 
 

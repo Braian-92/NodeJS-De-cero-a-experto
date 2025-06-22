@@ -16,6 +16,33 @@
   <ul id="messages"></ul>
 
   <script>
+    const socket = new WebSocket('ws://localhost:3000');
+
+
+    const form = document.querySelector('form');
+    const input = document.querySelector('input');
+
+    function sendMessage(message) {
+      console.log("🚀 ~ sendMessage ~ message:", message)
+      socket.send(message);
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      sendMessage(input.value);
+      input.value = '';
+    });
+
+    socket.onopen = ( event ) => {
+      console.log("🚀 ~ event:", event)
+      console.log('connected to server');
+    }
+
+    socket.onclose = ( event ) => {
+      console.log("🚀 ~ event:", event)
+      console.log('disconnected from server');
+    }
+
   </script>
 
 </body>
