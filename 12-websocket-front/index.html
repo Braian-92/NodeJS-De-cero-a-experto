@@ -16,16 +16,19 @@
   <ul id="messages"></ul>
 
   <script>
-    const socket = new WebSocket('ws://localhost:3000');
-
-
     const form = document.querySelector('form');
     const input = document.querySelector('input');
     const messages = document.querySelector('#messages');
 
+    let socket = null;
+
     function sendMessage(message) {
-      console.log("🚀 ~ sendMessage ~ message:", message)
-      socket.send(message);
+      if (socket && socket.readyState === WebSocket.OPEN) {
+        console.log("🚀 ~ sendMessage ~ message:", message)
+        socket.send(message);
+      } else {
+        console.log('Socket no está conectado, no se puede enviar mensaje');
+      }
     }
 
     function renderMessage(message){
@@ -34,29 +37,39 @@
       messages.appendChild(li);
     }
 
+    function connectToServer(){
+      socket = new WebSocket('ws://localhost:3000');
+
+      socket.onopen = ( event ) => {
+        console.log("🚀 ~ event:", event)
+        console.log('connected to server');
+      }
+
+      socket.onclose = ( event ) => {
+        console.log("🚀 ~ event:", event)
+        console.log('disconnected from server');
+
+        setTimeout(() => {
+          connectToServer();
+        }, 2000);
+      }
+
+      socket.onmessage = ( event ) => {
+        const { payload } = JSON.parse(event.data);
+
+        renderMessage(payload);
+
+        console.log("🚀 ~ payload:", payload);
+      }
+    }
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       sendMessage(input.value);
       input.value = '';
     });
 
-    socket.onopen = ( event ) => {
-      console.log("🚀 ~ event:", event)
-      console.log('connected to server');
-    }
-
-    socket.onclose = ( event ) => {
-      console.log("🚀 ~ event:", event)
-      console.log('disconnected from server');
-    }
-
-    socket.onmessage = ( event ) => {
-      const { payload } = JSON.parse(event.data);
-
-      renderMessage(payload);
-      
-      console.log("🚀 ~ payload:", payload);
-    }
+    connectToServer();
 
   </script>
 
