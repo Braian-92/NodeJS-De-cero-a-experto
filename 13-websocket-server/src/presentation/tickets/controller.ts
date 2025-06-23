@@ -35,8 +35,8 @@ export class TicketsController {
   }
 
   public ticketFinished = async (req: Request, res: Response) => {
-    const { ticketID } = req.params;
-    res.json( this.ticketService.onFinishTicket(ticketID) );
+    const { ticketId } = req.params;
+    res.json( this.ticketService.onFinishTicket(ticketId) );
   }
 
   public workingOn = async (req: Request, res: Response) => {
