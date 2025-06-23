@@ -30,6 +30,11 @@ export class Server {
     this.app.use( express.json() ); // raw
     this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
 
+    this.app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      next();
+    });
+
     //* Public Folder
     this.app.use( express.static( this.publicPath ) );
 
