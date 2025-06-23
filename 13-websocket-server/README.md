@@ -16,3 +16,9 @@ Cada paso de su configuración ya se ha realizado previamente en el curso, por l
 
 npm i ws
 npm i --save-dev @types/ws
+
+npm i uuid
+
+# EJECUTAR FONT
+npx http-server -o
+poner "Y"
