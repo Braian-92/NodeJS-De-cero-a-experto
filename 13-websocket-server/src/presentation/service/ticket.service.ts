@@ -12,13 +12,13 @@ export class TicketService {
   ){}
 
 
-  public readonly tickets:Ticket[] =[
-    // { id: UuidAdapter.v4(), number: 1, createdAt: new Date(), done: false },
-    // { id: UuidAdapter.v4(), number: 2, createdAt: new Date(), done: false },
-    // { id: UuidAdapter.v4(), number: 3, createdAt: new Date(), done: false },
-    // { id: UuidAdapter.v4(), number: 4, createdAt: new Date(), done: false },
-    // { id: UuidAdapter.v4(), number: 5, createdAt: new Date(), done: false },
-    // { id: UuidAdapter.v4(), number: 6, createdAt: new Date(), done: false },
+  public tickets:Ticket[] =[
+    { id: UuidAdapter.v4(), number: 1, createdAt: new Date(), done: false },
+    { id: UuidAdapter.v4(), number: 2, createdAt: new Date(), done: false },
+    { id: UuidAdapter.v4(), number: 3, createdAt: new Date(), done: false },
+    { id: UuidAdapter.v4(), number: 4, createdAt: new Date(), done: false },
+    { id: UuidAdapter.v4(), number: 5, createdAt: new Date(), done: false },
+    { id: UuidAdapter.v4(), number: 6, createdAt: new Date(), done: false },
   ];
 
 
@@ -30,7 +30,7 @@ export class TicketService {
   }
 
   public get lastWorkingOnTickets():Ticket[] {
-    return this.workingTickets.splice(0, 4);
+    return this.workingTickets.slice(0, 4);
   }
 
   public get lastTicketNumber() {
@@ -70,7 +70,7 @@ export class TicketService {
 
     //! TODO Ws
     this.onTicketNumberChange();
-    
+
 
     return { status: 'ok', ticket }
   }
@@ -79,7 +79,7 @@ export class TicketService {
     const ticket = this.tickets.find( t => t.id === id );
     if( !ticket ) return { status: 'error', message: 'Ticket no encontrado'};
 
-    this.tickets.map( ticket =>{
+    this.tickets = this.tickets.map( ticket =>{
       if( ticket.id === id ) {
         ticket.done = true;
       }
