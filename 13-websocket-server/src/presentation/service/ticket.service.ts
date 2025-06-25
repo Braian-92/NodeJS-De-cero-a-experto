@@ -30,6 +30,7 @@ export class TicketService {
   }
 
   public get lastWorkingOnTickets():Ticket[] {
+    console.log("🚀 ~ TicketService ~ getlastWorkingOnTickets ~ this.workingTickets:", this.workingTickets)
     return this.workingTickets.slice(0, 4);
   }
 
@@ -96,6 +97,6 @@ export class TicketService {
   }
 
   private onWorkingOnChange(){
-    this.wssService.sendMessage('on-working-changed', []);
+    this.wssService.sendMessage('on-working-changed', this.lastWorkingOnTickets);
   }
 }
