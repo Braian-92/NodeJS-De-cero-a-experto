@@ -32,4 +32,39 @@ async function loadCurrentTickets(){
   renderTickets( tickets );
 }
 
+
+
+function connectToWebSockets() {
+
+  const socket = new WebSocket( 'ws://localhost:3000/ws' );
+
+  socket.onmessage = ( event ) => {
+    console.log(event.data);
+
+    const { type, payload } = JSON.parse(event.data);
+
+
+    
+
+    switch(type){
+      case 'on-working-changed':
+        renderTickets( payload );
+        break;
+    }
+  };
+
+  socket.onclose = ( event ) => {
+    setTimeout( () => {
+      connectToWebSockets();
+    }, 1500 );
+
+  };
+
+  socket.onopen = ( event ) => {
+    console.log( 'Connected' );
+  };
+
+}
+
 loadCurrentTickets();
+connectToWebSockets();

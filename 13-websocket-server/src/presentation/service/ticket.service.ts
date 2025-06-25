@@ -70,6 +70,7 @@ export class TicketService {
 
     //! TODO Ws
     this.onTicketNumberChange();
+    this.onWorkingOnChange();
 
 
     return { status: 'ok', ticket }
@@ -92,5 +93,9 @@ export class TicketService {
 
   private onTicketNumberChange(){
     this.wssService.sendMessage('on-ticket-count-changed', this.pendingTickets.length);
+  }
+
+  private onWorkingOnChange(){
+    this.wssService.sendMessage('on-working-changed', []);
   }
 }
