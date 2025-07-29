@@ -1,27 +1,11 @@
 version: '3.8'
 
-
 services:
-
-  # mongo-db:
-  #   image: mongo:6.0.6
-  #   restart: always
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: mongo-user
-  #     MONGO_INITDB_ROOT_PASSWORD: 123456
-  #   volumes:
-  #     - ./mongo:/data/db
-  #   ports:
-  #     - 27017:27017
-
-  # postgres-db:
-  #   image: postgres:15.3
-  #   restart: always
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_DB: my-db
-  #     POSTGRES_PASSWORD: 123456
-  #   volumes:
-  #     - ./postgres:/var/lib/postgresql/data
-  #   ports:
-  #     - 5432:5432
+  websocket-server:
+    build: .
+    container_name: websocket-server
+    ports:
+      - "3000:3000" # puerto expuesto para usar desde Postman o navegador
+    env_file:
+      - .env
+    restart: unless-stopped
