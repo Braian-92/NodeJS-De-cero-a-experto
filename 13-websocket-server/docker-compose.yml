@@ -5,7 +5,7 @@ services:
     build: .
     container_name: websocket-server
     ports:
-      - "3000:3000" # puerto expuesto para usar desde Postman o navegador
+      - "3000:3000"  # Expone el puerto del servidor WebSocket
     env_file:
       - .env
     restart: unless-stopped
